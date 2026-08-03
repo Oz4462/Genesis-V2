@@ -1,1140 +1,1008 @@
 <div align="center">
 
-# GENESIS
+<br/>
 
-### *Generative Engine for Networked Ideation, Synthesis & Specification*
+# ✦ GENESIS ✦
 
-**A human brings an idea. GENESIS researches, verifies, computes, simulates, and packages a buildable, sourced specification — without inventing facts.**
+### Die Ideenmaschine für Träumer, Denker und Erfinder
+
+**Du bringst einen Funken.**  
+GENESIS **expandiert** ihn mutig in ein ganzes Ideenfeld —  
+dann hilft es dir, den besten Pfad zu **forschen, rechnen, bauen und packen**.  
+Integrität ist das **Gerüst unter dem Traum**, kein Türsteher davor.
 
 <br/>
 
+[![CI](https://github.com/Oz4462/genesis/actions/workflows/ci.yml/badge.svg)](https://github.com/Oz4462/genesis/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-%E2%89%A5%203.11-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-yellow)
-![Determinism](https://img.shields.io/badge/runs-deterministic%20%C2%B7%20reproducible-blue)
-![Offline](https://img.shields.io/badge/offline--first-no%20cloud%20required-555)
-![Anti-hallucination](https://img.shields.io/badge/anti--hallucination-gates%20not%20vibes-critical)
-![Status](https://img.shields.io/badge/product-HORIZON%20%C2%B7%20PRINTFORGE%20native-2ea44f)
-![Public](https://img.shields.io/badge/this%20repo-public%20product%20overview-0ea5e9)
+![Package](https://img.shields.io/badge/pip-genesis--engine-informational)
+![Modes](https://img.shields.io/badge/CLI-59%20modes-7c3aed)
+![Physics](https://img.shields.io/badge/physics-53%20validators%20·%2058%20recipes-0ea5e9)
+![CAD](https://img.shields.io/badge/CAD-27%20shape%20families-f59e0b)
+![Offline](https://img.shields.io/badge/offline--first-yes-0f766e)
 
 <br/>
 
-> **Sources over claims · recomputed physics over guessed numbers · honest gaps over invented answers.**
+```text
+                    ╭──────────────────╮
+                    │   DEIN FUNKEN    │
+                    │  „Was, wenn…?“   │
+                    ╰────────┬─────────╯
+                             │
+              ┌──────────────▼──────────────┐
+              │     IDEENMASCHINE (ideate)  │
+              │  10 Linsen · Stretch · Mut  │
+              └──────────────┬──────────────┘
+                             │  Ideenfeld (viele Sparks)
+              ┌──────────────▼──────────────┐
+              │   WÄHLEN / invent / solve   │
+              └──────────────┬──────────────┘
+                             │
+         ┌───────────────────┼───────────────────┐
+         ▼                   ▼                   ▼
+    FORSCHEN αβγ         PHYSIK δ             CAD / DFM
+    Council, Ledger      53 Validatoren       Bridge → STL
+         │                   │                   │
+         └───────────────────┴───────────────────┘
+                             │
+                    ╭────────▼────────╮
+                    │ REALISIERUNGS-  │
+                    │ PAKET  out/…    │
+                    ╰─────────────────╯
+```
+
+> **Dream first · expand boldly · prove what you ship · honest gaps over invented answers.**
+
+*Generative Engine for Networked Ideation, Synthesis & Specification*
+
+<br/>
 
 </div>
 
-> **Public product overview.** This repository hosts the **GENESIS product description** for sharing and discussion.  
-> The full engine source and operational data live in a **separate private codebase** and are not published here.
-
----
-```
-                          ┌─────────────────────────────────────────────────┐
-   💡 Idea / problem  ───▶│  G E N E S I S  ·  verifier at the core         │───▶  ✅ Sourced solution
-      field / question    │  no fact without provenance · gates are law     │      STL · BOM · proof · package
-                          └─────────────────────────────────────────────────┘
-```
-
-GENESIS is an **anti-hallucination engine**. The center of gravity is not the generator — it is the **verifier**: every factual claim lives in a ledger with sources, confidence, and verification status; every number is recomputed; every phase ends only when its **gate** (hard code, not a prompt) passes. *“I don’t know”* is a valid, preferred outcome.
-
-| | |
-|--|--|
-| **This repository** | Public product overview & architecture narrative (README only) |
-| **Engine source** | Maintained privately — not mirrored in this repo |
-| **Contact / discussion** | Use GitHub Issues on this repository for product questions |
-
 ---
 
-## Table of contents
+## Inhaltsverzeichnis
 
-1. [What’s new (2026-07 campaign)](#1-whats-new-2026-07-campaign)
-2. [Three capabilities](#2-three-capabilities)
-3. [Six guarantees (hard code)](#3-six-guarantees-hard-code)
-4. [**Module map — what exists and how it works**](#4-module-map--what-exists-and-how-it-works)
-5. [**From idea to paper — the complete journey**](#5-from-idea-to-paper--the-complete-journey)
-6. [**Worked examples — what the end looks like**](#6-worked-examples--what-the-end-looks-like)
-7. [Quickstart](#7-quickstart)
-8. [Invention loop](#8-invention-loop)
-9. [Research & discovery core](#9-research--discovery-core)
-10. [Physics engine (phase δ)](#10-physics-engine-phase-δ)
-11. [HORIZON arc (φ → Ω)](#11-horizon-arc-φ--ω)
-12. [Manufacturing & PRINTFORGE-native stack](#12-manufacturing--printforge-native-stack)
-13. [Realization packages](#13-realization-packages)
-14. [Knowledge, live sources & memory](#14-knowledge-live-sources--memory)
-15. [Platform caps](#15-platform-caps)
-16. [CLI modes (detailed)](#16-cli-modes-detailed)
-17. [External integration & license discipline](#17-external-integration--license-discipline)
-18. [Determinism, offline demos & honest limits](#18-determinism-offline-demos--honest-limits)
-19. [Project structure](#19-project-structure)
-20. [Installation](#20-installation)
-21. [Tests & CI](#21-tests--ci)
-22. [Development process](#22-development-process)
-23. [License](#23-license)
+| # | Kapitel |
+|---|---------|
+| 1 | [Was GENESIS ist](#1-was-genesis-ist) |
+| 2 | [Produktgesetz](#2-produktgesetz--träumen-zuerst) |
+| 3 | [Große Karte (Visual)](#3-große-karte-visual) |
+| 4 | [Geführte Touren](#4-geführte-touren-mit-befehlen) |
+| 5 | [Schnellstart](#5-schnellstart) |
+| 6 | [Ideenmaschine im Detail](#6-ideenmaschine-im-detail) |
+| 7 | [Alle 59 CLI-Modi](#7-alle-59-cli-modi) |
+| 8 | [Architektur der Codebase](#8-architektur-der-codebase) |
+| 9 | [Physik-Engine (δ)](#9-physik-engine-δ) |
+| 10 | [CAD, Shapes & Fertigung](#10-cad-shapes--fertigung) |
+| 11 | [Fach-Pipelines](#11-fach-pipelines) |
+| 12 | [Humanoids, Aero, Simulation](#12-humanoids-aero-simulation) |
+| 13 | [Web-Atelier](#13-web-atelier) |
+| 14 | [Gates, Ledger, Delivery](#14-gates-ledger-delivery) |
+| 15 | [Python-API](#15-python-api) |
+| 16 | [Scripts & Helfer](#16-scripts--helfer) |
+| 17 | [Installation](#17-installation) |
+| 18 | [Tests & Qualität](#18-tests--qualität) |
+| 19 | [Zahlen aus dem Code](#19-zahlen-aus-dem-code) |
+| 20 | [Dokumentation](#20-dokumentation) |
+| 21 | [Lizenz](#21-lizenz) |
 
-> **New here?** Jump to **§4 modules**, **§5 idea → paper**, and **§6 end-package examples** — that is the full product story.
+> Diese README basiert auf dem **live gemessenen Code** (`src/gen/`, `scripts/`, `tests/`, `pyproject.toml`) — Stand `main`, 2026-08.  
+> Produktidentität: [`ABOUT.md`](ABOUT.md) · [`docs/IDEA_MACHINE.md`](docs/IDEA_MACHINE.md) · [`docs/STATUS.md`](docs/STATUS.md).
 
 ---
 
-## 1. What’s new (2026-07 campaign)
+## 1. Was GENESIS ist
 
-A full **Phase A→F** product campaign closed major seams. Everything below is **in `main`**, covered by tests and green GitHub Actions (Python 3.11 + 3.12).
+### In einem Satz
 
-### Phase A — HORIZON trust
+> GENESIS ist eine **Ideenmaschine**: sie expandiert Vorstellungskraft zuerst und nutzt Integrität als **Gerüst**, damit die besten Träume gebaut werden können — **ohne zu lügen**.
 
-| Change | Detail |
-|--------|--------|
-| **Import split** | One missing symbol (`derive_goal_from_spec`) had nulled *all* HORIZON builders; imports are now per-module. |
-| **Subgates attach** | ε seams, ζ memory fabric, γ⁺ Pareto, δ⁺ coverage, Ω — no longer silent `None` on normal dreams. |
-| **`enforce_omega=True`** | Default: failed/absent Ω raises `OmegaGateNotPassed` (OM-4). Opt out only via `enforce_omega=False`. |
-| **Ω receipts** | `OmegaCertificate.gate_receipts` includes ε/ζ/γ⁺/coverage + pre-gate with evidence notes. |
-| **δ⁺ fixtures** | `process_dream(..., measurement_fixture=path\|dict)` → real `Measurement` + `evaluate_reality`; without fixture stays **inconclusive** (never invents a matching reading). |
-| **Docs honesty** | STATUS/HORIZON use L0–L4; no “complete” without evidence. |
+### Für wen?
 
-### Phase B — Manufacturing (PRINTFORGE-native)
-
-| Change | Detail |
-|--------|--------|
-| **CNC DFM** | `resolve_cnc_material_class` + `evaluate_cnc_wall` — metal vs plastic min-wall from `material_hint`. |
-| **PCB layout** | Optional `pcb_layout={...}` on `check_advanced_dfm` evaluates fab rules; mechanical-only stays all-gaps. |
-| **Cost models** | `estimate_cnc_cost`, `estimate_laser_cost` ranged bands + CAM/path gaps (plus existing FDM). |
-| **G-code** | Outside profile, rectangular pocket, **face mill** — verified RS-274 structure. |
-| **CadQuery bridge** | Isolated `.venv-cad`; bridge only if `cad_available()` — **CI-safe** without laptop paths. |
-
-### Phase C — Realization package
-
-| Artifact | Schema / meaning |
-|----------|------------------|
-| `bom.json` / `BOM.md` | `genesis-bom-v1` — mechanical + electronic lines, counts, gaps |
-| `harness_package.json` / `HARNESS.md` | Harness + netlist + placement + honest gaps |
-| `drawings.json` / `DRAWINGS.md` | Drawing **index** with **`drawing_gap: true`** until GD&T/PDF exists |
-| Module | `gen.pipelines.realization_package` wired into `build_full_mini_realization_package` |
-
-### Phase D — Live knowledge
-
-| Feature | Detail |
-|---------|--------|
-| **`genesis --mode sources`** | Full connector catalog: search backends, wissensbasis, ledger, vector |
-| **Community evidence** | Agent-sourced OpenAlex; `user_data_required=False` — **no user JSON ledger** |
-| **PatentsView** | Wired only with `PATENTSVIEW_API_KEY`; status `key_missing` otherwise |
-| **Electronics seeds** | ESC, buck, CAN-FD + **improvement recipes** (thermal pad, IPC-2221 trace) |
-| **Ledger / vector** | Postgres via `GENESIS_PG_DSN`; vector = local anamnesis vendor — production Qdrant **not claimed** |
-
-### Phase E — Simulation & caps
-
-| Feature | Detail |
-|---------|--------|
-| **`genesis --mode caps`** | Matrix: which CLI modes surface proof / readiness / teacher / community |
-| **`genesis --mode multi-physics`** | Closed-form receipt: \(P \to \Delta T = P R_{th}\) + Euler–Bernoulli tip |
-| **Reference cases** | Expanded (thermal RC, ohmic power, plate bending, …) |
-| **Mesh fixture** | `analytical_mesh_series_case` for honest mesh_convergence demos |
-| **Bundle MANIFEST** | Caps fields: `proof_package`, `readiness_level`, `teacher_notes_present`, `community_score`, `caps_present`, `caps_gaps` |
-
-### Phase F — Cleanup & learning
-
-| Feature | Detail |
-|---------|--------|
-| **Doc drift** | Stale “fracture NotImplemented” claims corrected |
-| **Learning integrator** | Mines real `safety.stages` + `revised.revisions` |
-| **`run_grenz_learning_loop`** | front → frontier → revise → safety → delta → feed |
-| **`revise_with_learning`** | Closes loop; **never** upgrades Grenztypen without verified evidence |
-
----
-
-## 2. Three capabilities
-
-```mermaid
-flowchart LR
-    IDEA([💡 Idea · problem · field]) --> ROUTER{{GENESIS}}
-    ROUTER -->|specify| SPEC["🏗️ <b>SPECIFY</b><br/>α research → β options<br/>→ γ specification → δ physics"]
-    ROUTER -->|discover| DISC["🔬 <b>DISCOVER</b><br/>SINDy · proof loop<br/>· frontier families"]
-    ROUTER -->|invent| INV["⚙️ <b>INVENT</b><br/>council → gates → Pareto<br/>→ novelty → safety"]
-    SPEC --> O1([✅ sourced specification<br/>STL · BOM · build package])
-    DISC --> O2([✅ law / ODE<br/>+ uncertainty + proof label])
-    INV --> O3([✅ grounded invention<br/>+ sources + artifact])
-    style ROUTER fill:#1f2937,color:#fff,stroke:#10b981,stroke-width:2px
-    style SPEC fill:#0f766e,color:#fff
-    style DISC fill:#6d28d9,color:#fff
-    style INV fill:#b45309,color:#fff
-```
-
-| | **Specify** | **Discover** | **Invent** |
-|---|---|---|---|
-| **Input** | a concrete idea | measurements / a conjecture | a field or problem |
-| **Output** | print-ready / packageable specification | a law or ODE + uncertainty band | a grounded invention |
-| **Gate** | δ physics + γ sources | z3 kernel / SINDy hygiene | δ physics + novelty + safety |
-| **If stuck** | honest gap in the package | “candidate”, never fake “theorem” | refuse over-bold concepts |
-
----
-
-## 3. Six guarantees (hard code)
-
-These are **enforced in constructors and gates**, not style guides:
-
-1. **No factual output without a source.** A `Claim` without provenance cannot be built (`UnsourcedClaimError`).
-2. **Verification is a gate, not a suggestion.** A phase ends only when its gate result is `passed`.
-3. **Cross-model.** Live skeptic uses a different model family from the generator (`assert_different_families`).
-4. **Abstention is success.** Refusal / “I don’t know” is measured and preferred over fabrication.
-5. **Determinism.** Every run has a `run_id`; offline demos are scripted; live is opt-in.
-6. **Stack-agnostic core.** Code against `core/interfaces.py`; cloud and CAD kernels live behind adapters.
-
-Additional product laws:
-
-- **No invented lab measurements.** δ⁺ is inconclusive until a retrieved `Measurement` exists.
-- **No user-supplied community ledger required.** Public literature is agent-fetched (OpenAlex).
-- **Completion cannot hide a failed Ω gate** when enforcement is on (default).
-
----
-
-## 4. Module map — what exists and how it works
-
-GENESIS is not one chatbot. It is a **stack of modules** with a fixed contract: generators may propose; **gates and the ledger decide what survives**. Below is the product-level map of the private engine (module paths are engine names for orientation — source is not published in this overview repo).
-
-```text
-┌──────────────────────────────────────────────────────────────────────────┐
-│                         GENESIS product surface                           │
-│  CLI (genesis --mode …)  ·  optional web UI  ·  package writers            │
-└────────────────────────────────┬─────────────────────────────────────────┘
-                                 │
-     ┌───────────────────────────┼───────────────────────────┐
-     ▼                           ▼                           ▼
- SPECIFY (α→δ)              DISCOVER                    INVENT / HORIZON
- research→options→spec      SINDy · proof · frontier    council · gates · Ω
-     │                           │                           │
-     └───────────────────────────┴───────────────────────────┘
-                                 │
-                    ┌────────────┴────────────┐
-                    ▼                         ▼
-            Physics + CAD stack         Realization package
-            DFM · G-code · cost · KiCad   BOM · drawings · montage · gaps
-                    │                         │
-                    └────────────┬────────────┘
-                                 ▼
-                    📄 Files on disk (“paper” package)
-```
-
-### 4.1 Core contract modules (always on)
-
-| Module group | What it does | How it works |
-|--------------|--------------|--------------|
-| **Ledger / claims** | Every factual statement is a `Claim` with provenance | Cannot construct an unsourced claim (`UnsourcedClaimError`). Confidence + verification status travel with the claim. |
-| **Gates** | Phase exits are hard code | A phase ends only when its gate result is `passed` — not when an LLM says “done”. |
-| **Interfaces** | Stack-agnostic core | Code against `core/interfaces.py`; LLMs, CAD kernels, DBs sit behind adapters. |
-| **Determinism** | Reproducible demos | Every run has a `run_id`; offline demos are scripted; live backends are opt-in (`GENESIS_ALLOW_LIVE`). |
-
-### 4.2 Research & agent modules (phase α / research)
-
-| Module | Role | What leaves the module |
-|--------|------|------------------------|
-| **Scout / Scholar / Skeptic** | Find → quote-check → challenge claims | Only claims that survive source text (NFKC-normalized quote check) stay grounded |
-| **Tools connectors** | Wikipedia, OpenAlex, arXiv, Wikidata density (P2054), materials registry, optional PatentsView | Structured literature/material hits — not free prose “facts” |
-| **Source catalog** | `genesis --mode sources` | Health matrix of every connector (key present / offline / gaps) |
-| **Goldset** | Anti-hallucination measurement harness | Scores abstention vs fabrication |
-
-### 4.3 Discovery modules (laws from data / math)
-
-| Module | Role | Honesty rule |
-|--------|------|--------------|
-| **SINDy / STLSQ** | Sparse ODE recovery from trajectories | Dummy-feature hygiene; ensemble uncertainty bands |
-| **Proof loop** | Identity → mpmath prefilter → z3 QF_NRA | Labels: **theorem** / **refuted** / **candidate** — never silent promotion |
-| **Frontier 6.x** | Multiterm, transcendental, GP open-form, … | Occam + out-of-sample gates |
-| **ExplorationController** | Budgeted multi-problem campaigns | Stops on budget, not on vibes |
-
-### 4.4 Specification & physics modules (γ / δ)
-
-| Module | Role | Output |
-|--------|------|--------|
-| **Clarification** | Turns a messy idea into measurable goals | Structured brief / constraints |
-| **Specification builders** | Geometry, loads, materials, subsystems | A built `Specification` object |
-| **physics_selection** | Auto-maps domain keywords → check recipes | Recipe list (statics, thermal, fatigue, …) |
-| **physics_validation** | Deterministic validators | Pass / fail / gap per recipe (Paris law, plates, Monte Carlo, …) |
-| **Assessment** | Clarification + δ + grounding + **platform caps** | Readiness, proof package, teacher notes, community score |
-
-### 4.5 Invention & HORIZON modules
-
-| Module | Role | How it works |
-|--------|------|--------------|
-| **Inventor brief + safety** | Field / goal / constraints | Weapons/bio briefs refused **before** any proposer runs |
-| **Council / proposer** | Bold generation (LLM or offline) | Fallible by design — never writes ledger facts alone |
-| **Novelty gate** | OpenAlex + patents distance | `not_novel` is **never grounded**; nearest prior art is cited |
-| **Architect → δ gate** | Physics grounding of the concept | Measurand-tagged quantities; fail → refine or honest gap |
-| **Pareto / γ⁺** | 5-axis score (cost, mass, performance, complexity, novelty) | Recomputable stamps — not opaque scores alone |
-| **ε seams** | Cross-domain seam certificate | Proves subsystems fit at interfaces |
-| **ζ memory fabric** | Deposits only **VERIFIED** claims | Empty fabric = valid abstention |
-| **δ⁺ reality** | Falsification experiment + optional measurement | Without a real `Measurement` → **inconclusive** (never invents lab data) |
-| **δ⁺ coverage** | Reviewed failure modes | Certificate of what was / wasn’t covered |
-| **Ω omega** | Cross-phase decision sheet | Default **enforced**: failed/missing Ω raises; receipts list every subgate |
-
-### 4.6 Manufacturing modules (PRINTFORGE-native)
-
-There is no external “PRINTFORGE product” dependency — competence is **native** in the engine:
-
-| Module | Responsibility |
-|--------|----------------|
-| **prototype CAD builder** | Parametric part specs + emit path |
-| **BREP / CadQuery bridge** | Exact volume/valid/interfere/STL via **isolated** CAD interpreter |
-| **DFM + manufacturing_check** | FDM / CNC / laser / PCB rules; material-aware min walls |
-| **cost_model** | Ranged FDM / CNC / laser bands + honest CAM gaps |
-| **gcode** | Profile, rectangular pocket, face mill + structure verifier |
-| **electronics + KiCad export** | Netlist, placement, internal DRC, harness, thermal loads, `.kicad_*` skeletons |
-| **printability** | Mesh integrity / large-volume / layer-adhesion heuristics |
-
-### 4.7 Discipline pipelines (multi-fragment realize path)
-
-When an idea is realized as a **package**, specialist fragment pipelines collaborate:
-
-| Pipeline | Produces |
-|----------|----------|
-| **Ingenieur / Designer / Architekt** | System concept, dimensions, assembly intent |
-| **Physiker** | Loads, falsification plan, physics-side constraints |
-| **Elektriker** | Netlist, BOM electronic lines, harness, KiCad artifacts |
-| **Fertigungs** | DFM process matrix, process notes |
-| **Techniker** | Tools, montage steps, checks |
-| **Regulatorik** | Safety / regulatory hints (not a certificate of compliance) |
-| **Software** | Software spec stub when control/compute appears |
-| **realization_package** | Assembles everything into one folder + structured BOM |
-
-### 4.8 Knowledge, memory, caps
-
-| Module | Role |
-|--------|------|
-| **Wissensbasis** | Recipes, connectors, component/material seeds (ESC, buck, CAN-FD, IPC-style improvements, …) |
-| **Community evidence** | Agent-fetched OpenAlex literature — **no user JSON homework ledger** |
-| **Postgres ledger** (optional) | Persistent claims via `GENESIS_PG_DSN` |
-| **Vector / anamnesis** | Local memory vendor (production Qdrant not claimed) |
-| **Platform caps** | ProofPackage · ReadinessLadder · TeacherMode · CommunityEvidence — must surface honestly on full-caps modes |
-
-### 4.9 Delivery modules (what writes “paper”)
-
-| Module | Writes |
-|--------|--------|
-| **bundle / emit_bundle** | Full deliverable + `MANIFEST.json` with caps fields |
-| **realize / realization_package** | Multi-fragment folder under `out/realization_packages/…` |
-| **BAUANLEITUNG path** (full gated specs) | Build guide with **every quantity traced** (decision / calculated / ledger source) |
-
----
-
-## 5. From idea to paper — the complete journey
-
-“Paper” means a **folder of verifiable artifacts on disk** — BOM, drawings index, STLs, montage, regulator notes, gates, gaps — not a marketing paragraph.
-
-```mermaid
-flowchart TD
-    A[💡 Raw idea<br/>sentence / field / problem] --> B{Route}
-    B -->|specify / assess / bundle| C1[α Research<br/>sources + claims]
-    B -->|invent / dream / horizon-full| C2[Safety → Council → Novelty]
-    B -->|realize| C3[Fragment pipelines<br/>multi-discipline]
-    B -->|discover| C4[Data / identity → SINDy / z3]
-
-    C1 --> D[β Options → γ Specification]
-    C2 --> D2[Architect + δ physics gate]
-    C3 --> E[CAD fragments + electronics + DFM]
-    C4 --> F[Law / ODE + label + band]
-
-    D --> G[δ Physics validation]
-    D2 --> G
-    G --> H[HORIZON subgates<br/>ε ζ γ⁺ δ⁺ coverage]
-    H --> I{Ω enforced?}
-    I -->|fail| STOP[⛔ OmegaGateNotPassed<br/>or honest gap package]
-    I -->|pass / partial mode| J[Caps snapshot<br/>proof · TRL · teacher · community]
-
-    E --> K[assemble realization package]
-    J --> L[emit_bundle / BAUANLEITUNG]
-    K --> M[📁 out/realization_packages/…]
-    L --> N[📁 out/bundle/… + guides]
-    F --> O[📁 discovery report]
-
-    M --> P[📄 Paper on disk<br/>SUMMARY · BOM · DRAWINGS · STL · MONTAGE · gaps]
-    N --> P
-```
-
-### Step-by-step (human story)
-
-| Step | What the human does | What GENESIS does | Gate / honesty |
-|------|---------------------|-------------------|----------------|
-| **1. Spark** | Types an idea: *“modular vertical garden with irrigation”* or *“steel bracket for 100 N”* | Parses intent; may clarify measurands | No free facts yet |
-| **2. Research (α)** | Optional: `--live` for real connectors | Scout/scholar/skeptic + OpenAlex/materials/Wikidata | Claims need sources |
-| **3. Options & spec (β→γ)** | Reviews options | Builds a `Specification` (geometry, materials, loads) | Spec is structured, not prose-only |
-| **4. Physics (δ)** | — | Runs selected validators (statics, thermal, …) | Fail → repair or gap |
-| **5. Invent / HORIZON** (alt path) | `--mode invent` / `horizon-full` / `dream` | Safety → propose → novelty → δ → Pareto → ε/ζ/δ⁺/Ω | Ω default enforced |
-| **6. Manufacture competence** | — | DFM multi-process, cost bands, optional G-code / BREP STL | Gaps listed (e.g. full GD&T) |
-| **7. Realize package** | `--mode realize "…"` | Fragments + BOM + harness + drawings index + montage | Physics gate **not** faked if no full Spec |
-| **8. Bundle / Bauanleitung** | `--mode bundle` / full pipeline | MANIFEST + proof package + quantity ledger in guide | Every number: decision / calculated / sourced |
-| **9. Paper** | Opens the folder | Human reads `SUMMARY.md`, prints `BOM.md`, slices STLs, follows montage | Open gaps stay visible |
-
-### Two package kinds (important)
-
-| Kind | Command path | What “complete” means |
-|------|--------------|------------------------|
-| **Artifact / realization package** | `realize` | Complete **manufacturing artifacts** (BOM, DFM, STL, drawing index). Physics gate may be **explicitly not run** — stated in SUMMARY. |
-| **Gated specification package** | `assess` / `bundle` / full humanoid-style pipeline | Complete **verified quantities** + δ physics + often a **BAUANLEITUNG** where every value is traced. |
-
-Mixing them up is how people invent false confidence. GENESIS labels the difference in the package itself.
-
-### What “on paper” always includes
-
-1. **Identity** — run id, package name, idea string  
-2. **Bill of materials** — mechanical + electronic lines (`genesis-bom-v1` when structured)  
-3. **Geometry** — STL / SCAD / DXF sections when CAD succeeds  
-4. **Drawings index** — views requested vs generated; **`drawing_gap`** until full GD&T/PDF  
-5. **DFM / cost / process notes** — printable? which process? what cannot be evaluated yet?  
-6. **Montage / checks** — tools, steps, electrical/visual checks (high level until later stones)  
-7. **Regulatorik / safety hints** — not a legal certification  
-8. **Open gaps** — first-class, not hidden in footnotes  
-9. **Caps** — proof path, readiness (e.g. TRL1), teacher notes, community evidence when mode supports them  
-10. **Physics honesty line** — either δ passed with recipe list, or “not run — use bundle/assess”
-
----
-
-## 6. Worked examples — what the end looks like
-
-### Example A — Small idea: modular vertical garden (realization package)
-
-**Idea (input):**
-
-```text
-Ein modularer Vertikal-Garten mit Bewaesserung
-```
-
-**Command (engine):**
-
-```bash
-genesis --mode realize "Ein modularer Vertikal-Garten mit Bewaesserung"
-# → out/realization_packages/<run_id>/
-```
-
-**Folder on disk (representative real package shape):**
-
-```text
-out/realization_packages/g4-smoke/
-├── SUMMARY.md                 # human entry point + physics honesty banner
-├── manifest.json              # full machine-readable package
-├── bom.json  +  BOM.md        # genesis-bom-v1 structured BOM
-├── drawings.json + DRAWINGS.md
-├── harness_package.json + HARNESS.md
-├── MONTAGEANLEITUNG.md
-├── REGULATORIK.md
-├── SCHALTPLAN.md / SOFTWARE_SPEC.md
-├── part_0_Main_Structure.stl  # printable mesh
-├── assembly_part_0.stl
-├── part_0_top.dxf             # real section export when CAD worker succeeds
-├── electronics_*.json / .kicad_* / .net
-├── dashboard.html / standalone_viewer.html
-└── <run>_proof/               # proof package directory
-```
-
-**What `BOM.md` looks like at the end:**
-
-```markdown
-# Bill of Materials (structured)
-Schema: genesis-bom-v1 | total lines: 2
-
-## Mechanical
-- **mech-0-Main_Structure**: Main Structure × 1.0 ea
-  (mat: Generic Structural; ref: part_0_Main_Structure.stl)
-
-## Electronic
-- **e_main_psu**: Generic 12 V 5 A PSU × 1.0 ea (ref: main_psu)
-```
-
-**What structured `bom.json` carries (excerpt):**
-
-```json
-{
-  "schema": "genesis-bom-v1",
-  "run_id": "g4-smoke",
-  "mechanical": [{
-    "id": "mech-0-Main_Structure",
-    "name": "Main Structure",
-    "quantity": 1.0,
-    "material_hint": "Generic Structural",
-    "source_idea": "Ein modularer Vertikal-Garten mit Bewaesserung",
-    "part_ref": "part_0_Main_Structure.stl",
-    "notes": ["volume_est_cm3=30.0", "bbox_mm=(100.0, 60.0, 5.0)", "min_wall_mm=2.0"],
-    "provenance": "integrator.fragment.cad_artifact"
-  }],
-  "electronic": [{
-    "id": "e_main_psu",
-    "name": "Generic 12 V 5 A PSU",
-    "quantity": 1.0,
-    "part_ref": "main_psu",
-    "provenance": "electronics.electronic_bom"
-  }],
-  "counts": { "mechanical": 1, "electronic": 1, "total": 2 },
-  "gaps": []
-}
-```
-
-**Drawings honesty (excerpt):**
-
-- Bounding box hint: **100 × 60 × 5 mm**, min wall **2.0 mm**, volume **~30 cm³**  
-- Views requested: isometric, front, top, right  
-- Views generated for real: **top → `part_0_top.dxf`**  
-- Explicit gaps: full isometric/right annotations, tolerance frames, surface finish — **GD&T still a gap**  
-- `drawing_gap` policy: **no fabricated PDF** pretending to be a finished shop drawing  
-
-**Montage (high level, end of package):**
-
-1. Mount structure / anchors per assembly manifest  
-2. Route power with strain relief; polarity + insulation checks  
-3. Functional checks (continuity, no shorts)  
-4. **Gap called out:** photo-level torque table per bolt is a later stone  
-
-**SUMMARY physics banner (always present on realize packages):**
-
-> Physics gate: **not run** in this package. This is the manufacturing/artifact bundle from idea strings.  
-> δ physics needs a built Specification → `--mode bundle` / `--mode assess`.  
-> “Complete” here means complete **artifacts**, not “physically validated.”
-
-**Readiness (example):** `TRL1` · open gaps listed in `manifest.json` (multi-assembly depth, full cost model, full G-code plan, …).
-
----
-
-### Example B — Large gated idea: AETHON humanoid (BAUANLEITUNG + BOM)
-
-**Idea (compressed):** a full head-to-toe ~1.35 m / ~22 kg 3D-printed humanoid with tendon hands, stereo head, 240 mm feet — gated on structure, kinematics, actuation, compute, balance, and grip — and it **stands**.
-
-**What “paper” looks like for a full gated pipeline:**
-
-| Artifact | Content at the end |
+| Du bist… | GENESIS gibt dir… |
 |----------|-------------------|
-| **`BAUANLEITUNG.md`** | Title + run id + solution approach; **table of every quantity** with value, unit, and origin (`Entscheidung` / `berechnet` / ledger claim id) |
-| **`bom.json`** | ~28 line items: printed pelvis/torso/head/limbs/feet/fingers, Dyneema tendons, QDD motors, bearings, electronics, … |
-| **STL / SCAD** | Per-link meshes (`aethon__c_thigh.stl`, …) + assembly SCAD |
-| **`MANIFEST.json`** | Package metadata + gates + missing list |
-| **`MISSING.md` / gaps section** | e.g. learned full dynamic gait is empirical RL — **physical limit**, not a fake closed-form theorem |
+| **Träumer / Erfinder** | Viele mutige Varianten statt „eine Antwort“ |
+| **Builder** | Spec, BOM, DFM, STL-Pfad, ehrliche Lücken |
+| **Ingenieur** | δ-Physik (53 Validatoren) ohne den Funken zu töten |
+| **Researcher** | Discovery/Proof mit Unsicherheits-Labels |
+| **Agent-Team** | Offline-fähige, auditierbare Pipeline |
 
-**Sample quantity rows (real shape of the build guide):**
-
-| id | Name | Value | Unit | Origin |
-|----|------|------:|------|--------|
-| `q_load` | single-leg share mass | 22 | kg | design decision |
-| `q_sf` | safety factor | 2 | 1 | design decision |
-| `q_design` | design mass | 44 | kg | **calculated** `q_load × q_sf` |
-| `q_g` | standard gravity | 9.80665 | m/s² | ledger `c_gravity` |
-| `q_force` | hip pivot design force | 431.493 | N | **calculated** `q_design × q_g` |
-| `q_strength` | CF-Nylon in-plane strength | 85 | MPa | ledger `c_material` |
-| `q_sigma_peak` | peak stress at hip hole | 17.48… | MPa | **calculated** (Kirsch × nominal bending) |
-
-**Sample BOM lines (end state):**
-
-| Part | Qty |
-|------|----:|
-| Printed pelvis / torso / head | 1 each |
-| Thigh / shank / foot links | 2 each |
-| Upper/lower arm, palm | 2 each |
-| Finger phalanges | 30 |
-| Tendons (Dyneema 0.8 mm + return elastic) | 10 |
-| Leg QDDs (e.g. AK80-class peak torque class) | 12 |
-| Arm axis QDDs | 15 |
-| Finger servos | 12 |
-| Deep-groove ball bearings | 54 |
-| … electronics, battery, harness, IMU, cameras (priced via ledger claims) | … |
-
-**Explicit non-claims in the same paper:**
-
-- Dynamic learned gait = empirical training handoff (URDF + stand proof), **not** a closed-form “theorem of walking”  
-- Full multi-body FEM under every load case = extension, not silently filled  
-
-That is the product promise: **the end of the pipeline is a folder a human can open, audit, and build from — with every invented number either calculated, decided, or sourced — and every missing piece labeled as a gap.**
-
----
-
-### Example C — One-liner paths (same idea, different depths)
-
-```bash
-# 1) Fast artifact package (BOM + STL + DFM + gaps)
-genesis --mode realize "steel bracket for 100 N shelf load"
-
-# 2) Physics + caps assessment
-genesis --mode assess "steel bracket for 100 N shelf load"
-
-# 3) Full HORIZON arc (Ω enforced by default)
-genesis --mode horizon-full "steel bracket for 100 N shelf load"
-
-# 4) Invent loop (offline deterministic; --live for real LLMs)
-genesis --mode invent "compliant FDM gripper for soft fruit"
-
-# 5) Operator honesty
-genesis --mode sources
-genesis --mode caps
-```
-
-Same sentence in, **different paper depth** out — always with the same anti-hallucination laws.
-
----
-
-## 7. Quickstart
-
-```bash
-# Clone and install core + test tools + SMT
-# Full engine install is available from the private GENESIS codebase (not this overview repo).
-# Commands below describe the product CLI surface of the engine:
-# cd /path/to/private-genesis-engine
-python3.11 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -e ".[dev,smt]"
-export PYTHONPATH=src
-
-# Discover a law from simulated data (SINDy + hygiene)
-genesis --mode discover-ode
-
-# Invent (offline-deterministic; --live enables real LLMs)
-genesis --mode invent "a compliant gripper"
-
-# Specify / assess / package
-genesis --mode assess --demo
-genesis --mode bundle --demo
-
-# Full HORIZON arc (Ω enforced)
-genesis --mode horizon-full "steel bracket for 100 N"
-
-# Operator surfaces
-genesis --mode sources          # connector health
-genesis --mode caps             # platform caps matrix
-genesis --mode multi-physics    # elec→thermal + beam tip receipt
-
-# Realization package (multi-idea → BOM + harness + drawings index)
-genesis --mode realize "jetpack tether test stand"
-```
-
-Optional CadQuery (exact BREP) — **never** install into the main venv (numpy pin risk):
-
-```bash
-# CadQuery lives in an isolated venv in the private engine (see product docs there).
-export GENESIS_CAD_PYTHON="$HOME/.venv-cad/bin/python"
-```
-
-Live backends (optional):
-
-```bash
-export GENESIS_ALLOW_LIVE=1
-export PATENTSVIEW_API_KEY=...   # only if you want patent prior-art search
-export GENESIS_PG_DSN=postgresql://...  # optional persistent ledger
-```
-
----
-
-## 8. Invention loop
-
-The autonomous invention loop cleanly separates a **proposer** (bold, fallible, optionally LLM) from **gates** (deterministic, incorruptible). The gate extends, ranks, and verifies — **it never invents facts**.
+### Fünf Produkt-Arme
 
 ```mermaid
-flowchart TD
-    B[📥 InventionBrief<br/>field + goal + constraints] --> SAFE{🛡️ Safety gate<br/>deterministic rule table}
-    SAFE -->|refused| STOP([⛔ REFUSED<br/>proposer never called])
-    SAFE -->|allowed| GEN[🧠 Council / proposer<br/>injectable · LLM or offline]
-    GEN --> NOV{🔍 Novelty gate<br/>OpenAlex + patents}
-    NOV -->|not novel| SKIP([📋 never grounded<br/>nearest prior art cited])
-    NOV -->|novel / new mechanism| GROUND[🔧 Architect → δ physics gate<br/>measurand-tagged quantities]
-    GROUND -->|physics_verified| SCORE[📊 5-axis Pareto<br/>cost · mass · performance<br/>· complexity · novelty]
-    GROUND -->|failed| REFINE[♻️ Refinement loop<br/>gate feedback → mutation]
-    REFINE -->|repaired| SCORE
-    REFINE -->|stuck| GAP([🕳️ HONEST GAP<br/>no fake success])
-    SCORE --> ART([🛠️ STL + BOM + package<br/>+ sources + gate verdict])
-    style SAFE fill:#7f1d1d,color:#fff
-    style NOV fill:#1e3a8a,color:#fff
-    style GROUND fill:#065f46,color:#fff
-    style ART fill:#b45309,color:#fff
-    style STOP fill:#450a0a,color:#fff
-    style GAP fill:#374151,color:#fff
+mindmap
+  root((GENESIS))
+    Ideate
+      multi-lens
+      stretch
+      out/ideate
+    DreamLoop
+      ideate then invent
+      one shot
+    Specify
+      alpha report
+      beta solution
+      gamma spec
+      delta physics
+    Discover
+      SINDy
+      identity proof
+      uncertainty
+    Invent
+      council
+      novelty
+      Pareto
 ```
 
-### Milestones (test-backed)
+| Arm | Code / CLI | Ergebnis |
+|-----|------------|----------|
+| **Ideate** | `idea_machine` · `--mode ideate` | IdeaField, Sparks, `out/ideate/` |
+| **Dream-loop** | `--mode dream-loop` | Expand + Invent in einem Lauf |
+| **Specify** | `run` / `run_solution` / `run_specification` · assess | Report → Spec → Physik |
+| **Discover** | `discover-ode`, identity_research | Gesetze mit Labels |
+| **Invent** | `inventor/*` · `--mode invent\|solve` | Konzepte, Score, Pakete |
 
-| Milestone | Proof |
-|-----------|--------|
-| **M1** — grounded invention | Free field → ≥1 physics-verified invention with sources + δ gate + STL/BOM path; over-bold concept → honest gap |
-| **M2** — rigorous novelty | Measured prior-art distance; `not_novel` is **never grounded**; nearest prior art is cited |
-| **M3** — self-repair | Failing physics concept refined via gate feedback; irreparable → honest `stuck` |
-| **Safety first-class** | Weapons/bio briefs refused **before** any proposer call |
+### Was es **nicht** ist
 
-### Scoring (γ⁺ bridge)
-
-`inventor.score` maps five axes into a HORIZON `ParetoFront` with **recomputable** quantity stamps (`inventor.score_recomputable`) so inverse-design objectives recompute the same numbers — not opaque proxy scores alone.
-
-Thermal invent uses material-aware conductivity (e.g. copper \(k=401\), aluminum \(k=205\)) from the materials registry.
+| Mythos | Realität |
+|--------|----------|
+| Security-Gate / Verifier-Produkt | **Nein** — Träumer ist Zentrum; Gates stützen den **Bau** |
+| „Anti-Halluzinations-Engine“ als Name | **Falsche Identität** — Ehrlichkeit ist Mittel, Ideenmaschine ist Zweck |
+| ChatGPT + CAD | Pipeline mit Spec, Physik, optionalem Kernel-CAD |
+| Immer grün | `physics_failed` / Gaps / `CAD_NOT_BUILT` sind **erfolgreiche Ehrlichkeit** |
 
 ---
 
-## 9. Research & discovery core
+## 2. Produktgesetz — träumen zuerst
 
-The honest difference between *discovered* and *proved* is baked into labels.
+```text
+╔════════════════════════════════════════════════════════════════════╗
+║  1  DREAM FIRST          Expandieren vor Beweisen. Mut = Default.  ║
+║  2  INTEGRITY = SCAFFOLD Physik/Ledger/Gaps schützen Builder,      ║
+║                          sie sind kein Türsteher am Eingang.       ║
+║  3  HARM BOUNDARY ONLY   Stop nur Waffen/Biosecurity — nie „zu    ║
+║                          mutig“.                                   ║
+║  4  ABSTENTION = SUCCESS „Ich weiß nicht“ > erfundene Zahl.        ║
+╚════════════════════════════════════════════════════════════════════╝
+```
+
+### Herkunft von Zahlen (Gerüst, wenn es um Fakten geht)
 
 ```mermaid
 flowchart LR
-    SIM[🌀 GENESIS simulators<br/>RK4 · clean trajectories] --> SINDY[SINDy / STLSQ<br/>sparse ODE from data]
-    SINDY --> HYG{SRBench hygiene<br/>dummy feature test}
-    HYG --> UNC[Ensemble bootstrap<br/>uncertainty band]
-    UNC --> LABEL([📈 law / ODE<br/>+ band · honest])
-
-    CLAIM[📐 conjectured identity] --> PRE[mpmath prefilter]
-    PRE -->|refuted| REF([❌ refuted<br/>+ counterexample])
-    PRE -->|holds numerically| Z3{z3 QF_NRA}
-    Z3 -->|proved| THM([✅ theorem<br/>kernel-closed])
-    Z3 -->|cannot model| CAND([🟡 candidate<br/>NOT certified])
-    style THM fill:#065f46,color:#fff
-    style REF fill:#7f1d1d,color:#fff
-    style CAND fill:#92400e,color:#fff
+  A[Measurand / Zahl] --> B{Herkunft?}
+  B -->|belegt| G[GROUNDED]
+  B -->|gerechnet| D[DERIVED]
+  B -->|bewusst gesetzt| C[DECISION]
+  B -->|unmöglich ehrlich| X[GAP — benannt]
+  G --> S[Spec / Physics / CAD]
+  D --> S
+  C --> S
+  X --> H[ehrliche Lücke im Report]
 ```
 
-### Discovery stack (selected)
+| `ValueOrigin` | Bedeutung |
+|---------------|-----------|
+| **GROUNDED** | Quelle / Messung / Ledger |
+| **DERIVED** | aus anderen Größen neu berechnet |
+| **DECISION** | Template/Design-Entscheidung + Rationale |
 
-| Module | Role |
-|--------|------|
-| `discovery/sindy.py` | STLSQ over function libraries; e.g. damped pendulum recovered at R²≈1 with dummy features thresholded |
-| Uncertainty bands | Ensemble-SINDy bootstrap — statistical, not systematic FD bias |
-| `discovery/proof_loop.py` | Identity proving: theorem / refuted / candidate |
-| Frontier 6.x | Multiterm, transcendental, composition, multiplicative, blind products, additive arguments, GP open-form (Occam ladders, OOS gates) |
-| `ExplorationController` | Budgeted multi-problem discovery campaigns |
-
-**Law:** z3 limits produce **candidates**, never silent promotion to “theorem”.
-
-### Phase α research path
-
-Scout → scholar → skeptic on real backends (or offline demos). Scholar quote-checks claims against fetched text (NFKC-normalized). Materials emit separate **density** and **thermal conductivity** claims so α can verify ρ and \(k\) independently. Wikidata P2054 densifies live copper/steel paths (e.g. copper VERIFIED against materials registry + Wikidata).
+**ClaimStatus:** `verified` · `unverified` · `refuted` · `unsupported`  
+**Physik-Gesamturteil:** `physics_verified` · `physics_failed` · `no_physics_indicated`
 
 ---
 
-## 10. Physics engine (phase δ)
+## 3. Große Karte (Visual)
 
-Deterministic validators and auto-selected check recipes over a built `Specification`:
+### 3.1 End-to-End Journey
 
-- **Validators** — statics, contact, plate, fracture (Paris law including **m = 2** closed form), fatigue, thermal, creep recipes, Monte Carlo product checks, etc.
-- **Auto-select** — `physics_selection` maps brief keywords / domains to recipes; `MANUAL_ONLY` remains only where no closed form exists (e.g. full-formula Monte Carlo uncertainty).
-- **Assessment** — clarification + δ-physics + constraints + grounding + platform caps (proof package, readiness TRL, teacher notes, community evidence).
+```mermaid
+flowchart TB
+  subgraph dream [1 · Träumen]
+    F[Funke in Alltagssprache]
+    I[ideate · 10 Linsen]
+    F --> I
+    I --> IF[IdeaField · viele Sparks]
+  end
 
-Assessment and invent paths attach **TeacherMode** and **community_evidence** (agent OpenAlex when live).
+  subgraph choose [2 · Wählen]
+    IF --> W{Mensch / invent / solve}
+    W --> DIR[gewählte Richtung]
+  end
 
----
+  subgraph build [3 · Bauen mit Gerüst]
+    DIR --> SP[idea_specification]
+    SP --> AS[assess_specification]
+    AS --> PH{Physik}
+    PH -->|ok| PV[physics_verified]
+    PH -->|fail| PF[physics_failed]
+    PH -->|keine| NP[no_physics_indicated]
+    DIR --> CAD[shape_router · shape_library]
+    CAD --> BR[cadquery_bridge]
+    BR -->|Kernel| STL[echte STL + Volumen]
+    BR -->|kein Kernel| NB[CAD_NOT_BUILT]
+  end
 
-## 11. HORIZON arc (φ → Ω)
-
-HORIZON is the cross-phase **completion and honesty** stack. Entry points:
-
-| Entry | Command / API |
-|-------|----------------|
-| Dream / LUMEN | `genesis --mode dream` · `process_dream(raw_dream)` |
-| Full orchestration | `genesis --mode horizon-full "…"` · `run_full_horizon` |
-| Caps matrix | `genesis --mode caps` |
-
-### Layers
-
-| Layer | Symbol | What it proves | Default depth |
-|-------|--------|----------------|---------------|
-| Seams | **ε** | Cross-domain seam certificate + `gate_epsilon` | L3 wired |
-| Memory fabric | **ζ** | Deposits of VERIFIED claims + `gate_zeta` | L3 wired |
-| Inverse design | **γ⁺** | Pareto front over design candidates | L3 wired |
-| Reality | **δ⁺** | Falsification experiment; optional measurement | L2–L3 |
-| Coverage | **δ⁺ cov** | Reviewed failure modes certificate | L3 wired |
-| Omega | **Ω** | Cross-phase decision sheet; failed gates cannot hide | L3 **enforced** |
-
-### Enforcement contract
-
-```python
-from gen.grenzverschiebung.lumencrucible import process_dream
-
-# Default: enforce_omega=True → OmegaGateNotPassed if Ω fails or is missing
-out = process_dream("steel bracket 100 N", work_queue_path="out/wq.md")
-
-# With independent lab-like fixture (never invent the reading):
-out = process_dream(
-    "steel bracket 100 N",
-    measurement_fixture={"value": 1.0, "unit": "1", "source": "fixture:lab-1"},
-)
-
-# Partial demos only:
-out = process_dream("…", enforce_omega=False)
+  subgraph pack [4 · Paket]
+    PV --> PKG[realize / bundle / breakthrough package]
+    PF --> PKG
+    STL --> PKG
+    NB --> PKG
+    PKG --> OUT[out/… Report · Manifest · Artefakte]
+  end
 ```
 
-Typical return keys: `hammer`, `omega_certificate`, `omega_gate`, `horizon_subgates`, `memory_fabric`, `seam_certificate`, `coverage_certificate`, `pareto_front`, `reality_verdict` / `delta_plus_result`, `teacher_notes`, `community_evidence`, `claim`, `self_improvement`.
-
-### Learning loop (Grenzverschiebung)
+### 3.2 Schichten der Engine (8)
 
 ```text
-map_development_front → watch_frontier → revise_boundary
-  → build_safety_ladder → apply_learning_cycle → apply_delta_to_front
+  ┌─────────────────────────────────────────────────────────────┐
+  │ 8  REALISIERUNG     realization_package · bundle · realize  │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 7  LERN             lernmaschine 8-step                     │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 6  CAD / CAE / DFM  cad/* · export/* · printability         │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 5  WISSENSBASIS     wissensbasis · tools · discovery        │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 4  FACH-PIPELINES   architekt … wirtschaft · elektriker     │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 3  GRENZ            grenzverschiebung · breakthrough        │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 2  MOONSHOT / φ     forge · divergence                      │
+  ├─────────────────────────────────────────────────────────────┤
+  │ 1  SCHÖPFERISCHER   idea_machine · inventor · agents   ★    │
+  │    KERN             (Träumer-Zentrum)                       │
+  └─────────────────────────────────────────────────────────────┘
 ```
 
-- Verified frontier evidence may upgrade Grenztypen.  
-- Synthetic items only create **candidates** (old_typ == new_typ).  
-- Learning extracts real stage criteria and revisions (not only the dream string).
+### 3.3 Research-Phasen α → β → γ → δ
+
+```mermaid
+sequenceDiagram
+  participant U as Mensch / CLI
+  participant R as runner
+  participant A as Agents Scout/Scholar/Skeptic
+  participant L as Ledger
+  participant P as Physics δ
+  participant C as CAD
+
+  U->>R: question / idea
+  R->>A: Phase α research
+  A->>L: claims + fetch receipts
+  R->>R: strict_delivery_gate
+  R-->>U: Report (α)
+  R->>R: Phase β solution space
+  R-->>U: SolutionReport (β)
+  R->>R: Phase γ specification
+  R-->>U: Specification (γ)
+  U->>P: assess_specification
+  P-->>U: physics verdict + gaps
+  U->>C: shape + bridge
+  C-->>U: STL or CAD_NOT_BUILT
+```
 
 ---
 
-## 12. Manufacturing & PRINTFORGE-native stack
+## 4. Geführte Touren (mit Befehlen)
 
-There is **no external PRINTFORGE product** on this machine; GENESIS implements manufacturing competence natively (native manufacturing stack — detailed inventory lives with the private engine).
+Alle Touren setzen voraus:
 
-### Modules
+```bash
+cd genesis
+source .venv/bin/activate
+export PYTHONPATH=src
+```
 
-| Module | Responsibility |
-|--------|----------------|
-| `cad/prototype_cad_builder.py` | Parametric prototype specs + code emit |
-| `brep.py` + `cad/cadquery_bridge.py` | Exact OCCT volume/valid/interfere/STL via isolated interpreter |
-| `cad/manufacturing_check.py` | Base printability + **advanced multi-process DFM** |
-| `dfm.py` | FDM / CNC / laser / PCB constants, geometric gaps, PCB layout evaluation |
-| `cad/cost_model.py` | FDM + CNC + laser ranged cost estimates |
-| `cad/gcode.py` | Profile, rect pocket, face mill + `verify_gcode` |
-| `cad/kicad.py` | Netlist / schematic skeleton exports (full copper DRC remains external seam) |
-| `electronics.py` | Rich MNA/transient/EMI, harness, placement, internal DRC, KiCad export |
+### Tour 1 — Nur träumen (offline)
 
-### Advanced DFM processes
+```bash
+python -m gen --mode ideate "druckbarer Greifer fürs Gewächshaus"
+python -m gen --mode packages
+```
 
-| Process | What is evaluated | What is a gap |
-|---------|-------------------|---------------|
-| **FDM** | Min wall, volume heuristics, printability notes | Hole diameters without feature CSG |
-| **CNC** | Material-aware min wall (metal/plastic) | Corner radius, pocket aspect, hole depth:d, envelope |
-| **Laser** | Sheet thickness vs industrial/shop caps | In-plane form, kerf, feature ratios |
-| **PCB** | Full rules if `pcb_layout` summary provided | Entire DRC if only a mechanical solid |
+**Was du siehst:** multi-lens Sparks (biology, mechanics, manufacturing, …), Paket unter `out/ideate/`.
+
+### Tour 2 — Expandieren und erfinden
+
+```bash
+python -m gen --mode dream-loop "compliant printable gripper"
+# oder:
+python -m gen --mode invent --from-ideate "printable exo knee brace"
+```
+
+### Tour 3 — Physik ehrlich befragen
+
+```bash
+python -m gen --mode assess --idea "Eine Halterung mit M5-Schraube fuer ein 12kg Regal"
+python -m gen --mode assess --idea "Ein Kochrezept fuer Suppe"
+```
+
+| Idee | Typisches Gesamturteil |
+|------|------------------------|
+| M5-Regal | oft `physics_failed` (Last + Gewinde) — **ehrlich** |
+| Kochrezept | `no_physics_indicated` — keine erfundene Statik |
+
+### Tour 4 — Druckbarkeit
+
+```bash
+python -m gen --mode print --demo
+```
+
+Capstone: oft `needs_attention` + Mesh-Hinweise · Shaft: `no_geometry`.
+
+### Tour 5 — CAD-Kernel + Breakthrough
+
+```bash
+bash scripts/setup_cadquery_venv.sh
+export GENESIS_CAD_PYTHON="$HOME/.venv-cad/bin/python"
+python -c "from gen.cad.cadquery_bridge import cad_available; print(cad_available())"
+python -m gen --mode breakthrough --idea "jetpack hover energy impossible"
+```
+
+Mit Kernel: echte STL + DFM-Gates. Ohne: Package mit **`CAD_NOT_BUILT`**.
+
+### Tour 6 — Web-Atelier
+
+```bash
+pip install -e ".[web]"
+export GENESIS_CAD_PYTHON="${GENESIS_CAD_PYTHON:-$HOME/.venv-cad/bin/python}"
+python -m gen.web --port 8080
+# Browser: http://127.0.0.1:8080
+# Titel: „Atelier für Träumer, Denker, Erfinder“
+```
+
+### Tour 7 — Offline-Demo (deterministisch)
+
+```bash
+python -m gen --demo
+```
+
+---
+
+## 5. Schnellstart
+
+### Install
+
+```bash
+git clone https://github.com/Oz4462/genesis.git
+cd genesis
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev,web]"
+```
+
+### CadQuery (optional, isoliert)
+
+```bash
+bash scripts/setup_cadquery_venv.sh
+export GENESIS_CAD_PYTHON="$HOME/.venv-cad/bin/python"
+# Vorlage: docs/env.cad.example
+```
+
+> **Nie** CadQuery ins Haupt-`.venv` — bricht den numpy/scipy-Stack. Die Bridge spricht per Subprocess mit dem isolierten Interpreter.
+
+---
+
+## 6. Ideenmaschine im Detail
+
+### 10 Linsen (`list_lens_ids`)
+
+```text
+  mechanics ── energy ── materials ── sensing ── biology
+       │                      │
+  software ── manufacturing ── society ── space ── planet
+```
+
+| Lens | Fokus |
+|------|--------|
+| `mechanics` | Struktur & Bewegung |
+| `energy` | Energie / Antrieb |
+| `materials` | Werkstoffe |
+| `sensing` | Sensorik |
+| `biology` | Bio-Analogie / Bio-Systeme |
+| `software` | Software / Steuerung |
+| `manufacturing` | Fertigung |
+| `society` | Gesellschaft / Nutzung |
+| `space` | Raumfahrt |
+| `planet` | Erd- / Planetensysteme |
+
+### Stretch-Taktiken
+
+Invert, miniaturize, scale-up, combine, biomimic, democratize, …  
+(`list_stretch_ids` / `filter_sparks_by_stretch`)
+
+### API
 
 ```python
-from gen.cad.manufacturing_check import check_advanced_dfm
+from gen.idea_machine import expand_idea, format_idea_field, count_sparks_by_lens
 
-report = check_advanced_dfm(artifact)  # uses spec.material_hint
-report = check_advanced_dfm(
-    artifact,
-    pcb_layout={
-        "min_trace_mm": 0.15,
-        "min_spacing_mm": 0.15,
-        "via_drill_mm": 0.3,
-        "annular_ring_mm": 0.15,
-        "copper_to_edge_mm": 0.35,
-        "board_thickness_mm": 1.6,
-    },
+field = expand_idea("printable gripper for greenhouse", max_sparks=12)
+print(format_idea_field(field))
+print(count_sparks_by_lens(field))
+```
+
+### Invent-Brücken-Flags
+
+| Flag | Bedeutung |
+|------|-----------|
+| `--from-ideate` | Sparks aus idea_machine |
+| `--ideate-package latest` | Paket unter `out/ideate/` |
+| `--spark <id>` | einzelner Spark |
+| `--from-history` | Seed aus HISTORY.jsonl |
+| `--remix-history` | History re-expandieren (ideate) |
+| `--lens` / `--stretch` / `--max-sparks` | Fokus & Budget |
+
+```bash
+python -m gen --mode invent --ideate-package latest --spark cli-ideate-s03 "…"
+python -m gen --mode ideate --lens energy --max-sparks 8 "home battery wall"
+python -m gen --mode ideate --remix-history --max-sparks 5
+```
+
+---
+
+## 7. Alle 59 CLI-Modi
+
+Einstieg: `python -m gen --mode <mode> …` · Script: `genesis`
+
+### ★ Ideenmaschine & Memory
+
+| Mode | Rolle |
+|------|--------|
+| **`ideate`** | Expand-first IdeaField |
+| **`dream-loop`** | ideate → invent one-shot |
+| **`invent` / `solve`** | Council → δ-Gerüst → Pareto |
+| `packages` | Katalog ideate/invent |
+| `lenses` · `history` · `deposit` · `stats` | Memory & Meta |
+| `ideas` · `dream` | weitere Traumpfade |
+| `divergence` | Phase φ Möglichkeitsraum (live) |
+| `frontier` | Phase χ Frontier-Karte |
+
+### Research & Spec
+
+| Mode | Rolle |
+|------|--------|
+| `report` | Phase α (**Default**) |
+| `solution` | Phase β |
+| `spec` | Phase γ (`--format text\|md\|scad\|b123d\|stl`) |
+| `capstone` · `eval` · `protocol` | Demo-Tiefe / Eval |
+| `goldset` | 24 Gold-Cases (dry / live-gated) |
+| `council` | Grok + Claude vorschlagen, **Gate entscheidet** |
+| `feynman` · `campaign` · `research` · `discover-ode` | Research-Pfade |
+
+### Qualität · Physik · Print · Bundle
+
+| Mode | Rolle |
+|------|--------|
+| `assess` | Klärung + δ-Physik + Constraints |
+| `print` | Printability / Mesh |
+| `bundle` · `realize` | Bundle / Realisierungspaket |
+| `breakthrough` | Impossible → Bridge + Package |
+| `horizon-full` | HORIZON-Bogen |
+| `multi-physics` · `caps` · `sources` · `surface` | Querschnitt |
+| `well-probe` · `sim-crosscheck` | Sim-Probes / externe Engines |
+| `section` · `topology` · `structural` · `training` · `chip` | Spezial |
+
+### Fach-Pipelines
+
+`fach` · `architekt` · `ingenieur` · `physiker` · `techniker` · `elektriker` · `fertigungs` · `regulatorik` · `software` · `designer` · `wirtschaft`
+
+### Humanoid & Aero
+
+`humanoid` · `aethon` · `humanoid-research` · `humanoid-chat` · `humanoid-report` · `aero-report`
+
+### Wichtige Flags
+
+| Flag | |
+|------|--|
+| `--demo` | offline deterministisch |
+| `--live` / `--live-budget` | Live-LLM (opt-in, teuer) |
+| `--generator` / `--verifier` | Modelle — **verschiedene Familien** |
+| `--deliver` | Markdown/HTML Deliverable |
+| `--idea` / `question` | Freitext |
+
+---
+
+## 8. Architektur der Codebase
+
+```text
+genesis/
+├── src/gen/                      ★ gesamtes Produkt (~364 Module, ~112k LOC)
+│   ├── cli.py                    59 Modi
+│   ├── runner.py                 α/β/γ + strict delivery
+│   ├── pipeline.py               assess + printability
+│   ├── idea_machine.py           expand-first ★
+│   ├── idea_memory.py            history / deposit
+│   ├── inventor/                 invent loop, score, novelty
+│   ├── agents/                   scout scholar skeptic conductor forge …
+│   ├── core/                     Claim Spec Quantity Errors
+│   ├── verification/             gates, SMT, geometry, cross_model
+│   ├── physics_selection.py      58 Rezepte
+│   ├── physics_validation.py     53 Validatoren
+│   ├── cad/                      bridge, shapes, DFM, CSG
+│   ├── pipelines/                Fach + idea_specification + realize
+│   ├── grenzverschiebung/        Lumen, frontier, horizon
+│   ├── lernmaschine/             8-step learning
+│   ├── humanoids/                robots, balance, RL hooks
+│   ├── simulation/               multi-physics, crosscheck
+│   ├── export/                   scad stl dxf viewer gdt
+│   ├── web/                      FastAPI + static atelier
+│   ├── ledger/                   memory + postgres
+│   ├── llm/                      claude / grok / ollama adapters
+│   ├── discovery/                SINDy, symbolic, …
+│   ├── wissensbasis/             store, bio, connectors
+│   └── extensions/               breakthrough_bridge
+├── scripts/                      kampagnen, cad setup, sweeps
+├── tests/                        große pytest-Suite
+├── docs/                         STATUS SSOT, IDEA_MACHINE, CAD
+└── pyproject.toml                genesis-engine
+```
+
+### Modul-Landschaft (Gruppiert)
+
+```mermaid
+flowchart LR
+  subgraph create [Schöpfen]
+    IM[idea_machine]
+    INV[inventor]
+    AG[agents]
+  end
+  subgraph truth [Gerüst]
+    CORE[core.state]
+    VER[verification]
+    LED[ledger]
+  end
+  subgraph body [Körper]
+    PHY[physics_*]
+    CAD[cad]
+    EXP[export]
+    PIP[pipelines]
+  end
+  subgraph world [Welt]
+    HUM[humanoids]
+    SIM[simulation]
+    WB[wissensbasis]
+    WEB[web]
+  end
+  IM --> INV
+  INV --> AG
+  AG --> CORE
+  CORE --> VER
+  VER --> LED
+  PIP --> PHY
+  PIP --> CAD
+  CAD --> EXP
+  PHY --> SIM
+  HUM --> SIM
+  WB --> AG
+  WEB --> PIP
+```
+
+---
+
+## 9. Physik-Engine (δ)
+
+**53 Validatoren** · **58 Rezepte** · Auswahl über Trigger-Measurands
+
+### Domänen-Übersicht
+
+```text
+  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐
+  │ STRUKTUR   │  │ THERMIK    │  │ DYNAMIK /  │  │ FERTIGUNG  │
+  │ torsion    │  │ overtemp   │  │ ROBOTIK    │  │ thread FDM │
+  │ buckling   │  │ mismatch   │  │ ZMP reach  │  │ wall emboss│
+  │ fatigue    │  │ vacuum rad │  │ actuator   │  │ bridges    │
+  │ cantilever │  │            │  │ battery    │  │ layer adh. │
+  │ fracture   │  │            │  │ bus/compute│  │            │
+  └────────────┘  └────────────┘  └────────────┘  └────────────┘
+  ┌────────────┐  ┌────────────┐  ┌────────────┐
+  │ FLUID/JOIN │  │ CRYPTO*    │  │ SPACE      │
+  │ pressure   │  │ key/nonce  │  │ ISRU O2    │
+  │ contact    │  │ GCM/ECDSA  │  │ ECLSS      │
+  │ shear bolt │  │            │  │ rotor hover│
+  └────────────┘  └────────────┘  └────────────┘
+  * domain recipes present in code — product use is opt-in via measurands
+```
+
+### Alle 58 Rezepte (Name → Validator)
+
+<details>
+<summary><b>Klick: vollständige Rezeptliste</b></summary>
+
+| Rezept | Validator | Trigger (Auszug) |
+|--------|-----------|------------------|
+| shaft torsion | `torsion` | `shaft.torque` |
+| fatigue (Goodman) | `fatigue` | `fatigue.stress_amplitude` |
+| column buckling | `buckling` | `column.axial_load` |
+| pressure vessel | `pressure_vessel` | `vessel.pressure` |
+| resonance | `resonance` | `vibration.excitation_frequency` |
+| notch fatigue | `notch_fatigue` | `notch.kt` |
+| bridge span | `bridge_span` | `feature.bridge_span` |
+| FDM fit clearance | `fdm_fit_clearance` | `fit.clearance` |
+| pin diameter | `pin_diameter` | `feature.pin_diameter` |
+| modeled thread | `thread_size` | `feature.thread_major_diameter` |
+| unsupported wall | `unsupported_wall` | `feature.unsupported_wall_thickness` |
+| embossed detail | `emboss_detail` | `feature.emboss_width` |
+| layer adhesion | `layer_adhesion` | `print.stress_across_layers` |
+| rotor hover | `rotor_hover` | `rotor.disk_area` |
+| battery endurance | `battery_endurance` | `flight.required_endurance` / robot |
+| current budget | `current_budget` | `battery.c_rating` |
+| attitude PD damping | `attitude_pd` | `control.attitude_kp` |
+| crypto key/nonce family | `key_security` / `birthday_bound` / … | `crypto.*` |
+| arm reach 2R | `reach` | `arm.target_x` |
+| balance ZMP | `zmp_balance` | `balance.com_x` |
+| electric joint actuator | `electric_actuator` | `actuator.joint_torque` |
+| hydraulic cylinder/flow | `hydraulic_*` | `hydraulic.*` |
+| compute / inference / bus | `compute_budget` … | `compute.*` / `bus.*` |
+| swing / gait dynamics | `swing_resonance` … | `limb.*` / `gait.*` |
+| overtemperature | `overtemperature` | `thermal.power_dissipation` / motor |
+| plate bending | `plate_bending` | `plate.pressure` |
+| contact pressure | `contact` | `contact.max_pressure` |
+| thermal expansion mismatch | `thermal_mismatch` | `thermal.delta_t` |
+| bolted joint preload | `bolted_joint` | `bolt.torque` |
+| fracture LEFM | `fracture` | `fracture.applied_stress` |
+| creep Larson-Miller | `creep` | `creep.applied_stress` |
+| montecarlo product | `montecarlo_product` | `uncertainty.a` |
+| vacuum radiation balance | `vacuum_radiation_balance` | `thermal.radiation_absorbed` |
+| ISRU O2 / ECLSS | `isru_*` / `life_support_*` | `isru.*` / `life_support.*` |
+| cantilever bending | `cantilever_bending` | `beam.transverse_force` |
+| beam natural frequency | `beam_natural_frequency` | `beam.mass_per_length` |
+| bearing L10 life | `bearing_l10_life` | `bearing.dynamic_load_rating` |
+| shear joint | `shear_joint` | `joint.shear_force` |
+
+</details>
+
+**Idee → Physik:** `pipelines.idea_specification` füllt product-class, wo erlaubt; **ungroundable** Checks (z. B. L10 ohne Lastzahlen) bleiben **benannte Gaps**.
+
+---
+
+## 10. CAD, Shapes & Fertigung
+
+### Isolierte Kernel-Architektur
+
+```mermaid
+flowchart LR
+  MAIN["Haupt-.venv\nnumpy scipy sympy …"]
+  BR[cadquery_bridge]
+  WRK[cadquery_worker.py]
+  CAD["~/.venv-cad\ncadquery / OCP"]
+  MAIN -->|JSON CSG| BR
+  BR -->|subprocess| WRK
+  WRK --> CAD
+  CAD -->|STL · volume · STEP| BR
+  BR --> MAIN
+```
+
+| Komponente | Datei |
+|------------|--------|
+| Bridge | `gen.cad.cadquery_bridge` |
+| Worker | `gen.cad.cadquery_worker` |
+| Shapes | `gen.cad.shape_library` (**27** Familien) |
+| Router | `gen.cad.shape_router` |
+| Builder | `gen.cad.prototype_cad_builder` |
+| DFM | `gen.cad.manufacturing_check` |
+| Setup | `scripts/setup_cadquery_venv.sh` |
+| Docs | [`docs/CADQUERY_VENV.md`](docs/CADQUERY_VENV.md) |
+
+### 27 Shape-Familien
+
+```text
+  plate  anchor_plate  l_bracket  t_bracket  gusset_bracket
+  enclosure_box  lid  standoff  spacer  flange
+  tube  shaft  shaft_coupler  bearing_block  motor_mount
+  pulley  spur_gear  clamp  hinge_leaf  lever_arm
+  extrusion_profile  gripper_finger  heat_sink  wheel
+  cone_adapter  mounting_panel  pressure_vessel
+```
+
+### Printability-Status
+
+| Status | Bedeutung |
+|--------|-----------|
+| `print_ready` | Mesh + Regeln ok |
+| `needs_attention` | druckbar mit Advisories |
+| `not_printable` | Blocker |
+| `no_geometry` | keine Geometrie |
+| `unavailable` | kein Mesh-Pfad |
+
+### Breakthrough
+
+```text
+  needs_breakthrough ──► Lern + Frontier + Wissensbasis
+                              │
+                              ▼
+                     build_plate + OCCT STL?
+                        │              │
+                     ja │              │ nein
+                        ▼              ▼
+              STL · Volumen · DFM    CAD_NOT_BUILT
+              Package grün           Package ehrlich
+```
+
+---
+
+## 11. Fach-Pipelines
+
+```mermaid
+flowchart TB
+  IDEA[Idee] --> IDEASPEC[idea_specification]
+  IDEA --> ARCH[architekt]
+  ARCH --> ING[ingenieur]
+  ING --> PHY[physiker]
+  ING --> TEC[techniker]
+  ING --> ELE[elektriker]
+  ING --> FER[fertigungs]
+  ING --> REG[regulatorik]
+  ELE --> INT[integrator]
+  FER --> REAL[realization_package]
+  IDEASPEC --> REAL
+```
+
+| Pipeline | Rolle |
+|----------|--------|
+| `idea_specification` | Freitext → Spec + Gaps |
+| `architekt` | System / Baugruppen |
+| `ingenieur` | Lastfälle, Toleranzen, CAD-Anforderungen |
+| `physiker` / `techniker` | Physik- / Technik-Sichten |
+| `elektriker` | Stromkreis/Budget aus **echtem** Electronics-Layer (kein Fake-12V für alles) |
+| `fertigungs` / `regulatorik` | Fertigung / Regelwerk |
+| `software` / `designer` / `wirtschaft` | weitere Sichten |
+| `integrator` | HTML/Viewer, Path-Confinement |
+| `realization_package` | finales Disk-Paket |
+
+---
+
+## 12. Humanoids, Aero, Simulation
+
+| Bereich | Code / CLI |
+|---------|------------|
+| Humanoids | `humanoids/*` · `humanoid` · `aethon` · `humanoid-chat` |
+| Competitive / Spec | `competitive_humanoid.py` · reports |
+| Aero | `aero/*` · `aero-report` |
+| Multi-Physics Receipt | `--mode multi-physics` |
+| Externe Engines | `--mode sim-crosscheck` (MuJoCo / PyBullet / CalculiX / Modelica) |
+
+`sim-crosscheck`: **rc=2** bei Abweichung · **rc=3** wenn keine Engine installiert.
+
+---
+
+## 13. Web-Atelier
+
+**UI-Titel:** *GENESIS — Atelier für Träumer, Denker, Erfinder*
+
+```bash
+python -m gen.web --port 8080
+# → http://127.0.0.1:8080
+```
+
+### API-Karte (26 Routen)
+
+```text
+  GET  /                      Atelier UI
+  GET  /api/status            Status
+  GET  /api/assess            Assessment
+  GET  /api/printability      Druckbarkeit
+  GET  /api/eval              Eval / leaks
+  GET  /api/capstone          Capstone-Spec
+  GET  /api/report/demo       Demo-Report
+  GET  /api/spec/demo         Demo-Spec
+  GET  /api/lenses            Linsen
+  GET  /api/packages          Pakete
+  GET  /api/history…          History
+  POST /api/ideate            ★ Ideenmaschine
+  POST /api/dream-loop        ★ Dream-Loop
+  POST /api/invent · /solve   Invent
+  POST /api/ask               Ask
+  POST /api/deposit · /stats  Memory
+  POST /api/research/assess   Research assess
+  GET|POST /api/ratification* Menschliche Freigabe
+  POST /api/clarify/*         Klärung
+```
+
+---
+
+## 14. Gates, Ledger, Delivery
+
+```mermaid
+flowchart TB
+  PROD[Producer / LLM / Demo] --> ALPHA[GATE α · Claim-Form]
+  ALPHA --> STRICT[strict_delivery_gate]
+  LED[Ledger fetch_receipts] --> STRICT
+  STRICT -->|pass| OUT[Report darf raus]
+  STRICT -->|fail| RED[redact + StrictDeliveryGateNotPassed]
+```
+
+| Baustein | Modul |
+|----------|--------|
+| α β γ φ χ … | `verification/gates.py` |
+| Strict delivery | `strict_delivery_gate` · `enforce_strict_delivery` |
+| Cross-model | `verification/cross_model.py` |
+| SMT | `constraint_smt` / z3 extra |
+| Ledger | `ledger/store.py` · optional Postgres |
+| Unfailable sweep | `scripts/sweep_unfailable.py` |
+
+Cross-Model-Regel (live): Generator ≠ Verifier-**Familie**.
+
+---
+
+## 15. Python-API
+
+```python
+# --- Leichter Einstieg ---
+from gen import run, run_solution, run_specification, Dependencies, default_config
+from gen import assess_specification  # lazy: zieht Physik/numpy
+
+# --- Ideenmaschine ---
+from gen.idea_machine import expand_idea, format_idea_field
+field = expand_idea("vertical farm harvest arm", max_sparks=12)
+print(format_idea_field(field))
+
+# --- Spec + Physik ---
+from gen.pipelines.idea_specification import build_specification_from_idea
+from gen.pipeline import assess_specification
+
+spec = build_specification_from_idea(
+    "A wall mount using a VESA 100 pattern for a monitor",
+    run_id="demo",
 )
+print(assess_specification(spec).overall)
+
+# --- CAD ---
+from gen.cad.cadquery_bridge import cad_available, to_stl, exact_volume
+from gen.cad.shape_library import build_plate
+
+assert cad_available()  # wenn GENESIS_CAD_PYTHON gesetzt / Default-venv da
+node, q = build_plate(size_x=100, size_y=60, size_z=5)
+stl = to_stl(node, q, name="plate")
+print(exact_volume(node, q) / 1000, "cm³")
+
+# --- Breakthrough ---
+from gen.extensions.breakthrough_bridge import challenge_impossible
+rep = challenge_impossible("jetpack hover energy impossible")
+print(rep.package_dir, rep.cad_stl_path, rep.dfm_passed)
 ```
 
-### G-code
-
-```python
-from gen.cad.gcode import (
-    generate_profile_gcode,
-    generate_rect_pocket_gcode,
-    generate_face_mill_gcode,
-    verify_gcode,
-)
-
-prog = generate_face_mill_gcode(100, 60, face_depth_mm=0.5)
-assert verify_gcode(prog).ok
-```
-
-Feeds/speeds are **stated assumptions**, not material-specific CAM. Multi-axis freeform remains a gap.
+Console scripts: **`genesis`** · **`genesis-web`**
 
 ---
 
-## 13. Realization packages
+## 16. Scripts & Helfer
 
-`build_full_mini_realization_package(ideas, …)` / CLI `realize` writes under `out/realization_packages/…`.
-
-See **§5** for the full idea→paper journey and **§6** for a concrete folder + BOM + Bauanleitung walkthrough.
-
-| File | Meaning |
-|------|---------|
-| `manifest.json` | Package metadata, DFM, fertigungs, **structured BOM**, caps, physics_gate honesty |
-| `bom.json` / `BOM.md` | Mechanical + electronic lines (`genesis-bom-v1`) |
-| `harness_package.json` / `HARNESS.md` | Harness + netlist + placement + gaps |
-| `drawings.json` / `DRAWINGS.md` | Drawing index; **`drawing_gap: true`** until full GD&T/PDF |
-| `part_*.stl`, assembly STLs | Geometry when CAD path succeeds |
-| `electronics_*.json` | Elektriker layer when available |
-| `SUMMARY.md`, `REGULATORIK.md`, `SCHALTPLAN.md`, `MONTAGEANLEITUNG.md` | Human-readable package docs |
-| `BAUANLEITUNG.md` (gated full pipelines) | Build guide with every quantity traced (decision / calculated / ledger source) |
-
-**Important:** idea/fragment packages are **manufacturing artifact bundles**. The deterministic δ-physics gate is **not** run without a full `Specification` — the manifest states this and points to `--mode bundle` / `--mode assess`.
+| Script | Bildlich | Zweck |
+|--------|----------|--------|
+| `setup_cadquery_venv.sh` | 🔧 | Isoliertes CadQuery |
+| `gen_status.py` | 📊 | STATUS.md AUTO-Block |
+| `sweep_unfailable.py` | 🧹 | AST: Checks die nie failen |
+| `find_islands.py` | 🏝️ | Erreichbarkeit im Package |
+| `check_no_empty_artifacts.py` | 🚫📄 | Keine 0-byte STLs |
+| `full_module_live_campaign.py` | 🚂 | Jeder Mode einmal |
+| `full_engine_integration.py` | 🔗 | Eine Idee × viele Engines |
+| `live_council_run.py` | 👥 | Live Grok+Claude |
+| `live_smoke.py` | 🔥 | Echter Live-Smoke |
+| `run_live_goldset.py` | 🥇 | Goldset-Verdict |
+| `self_improve_smoke.sh` | ✅ | Smoke inkl. CAD |
+| `postgres_smoke.py` | 🐘 | Echter Postgres-Ledger |
+| `verify_cli_launch.py` | 🪟 | Windows CLI adapter |
 
 ---
 
-## 14. Knowledge, live sources & memory
+## 17. Installation
 
-### Source catalog
+### Core
 
 ```bash
-genesis --mode sources
-GENESIS_SOURCES_JSON=1 genesis --mode sources
+pip install -e .
+# oder mit Tests + Web:
+pip install -e ".[dev,web]"
 ```
 
-Implemented in `gen.tools.source_catalog`:
+### Extras (`pyproject.toml`)
 
-| Connector | Key? | Notes |
-|-----------|------|--------|
-| Wikipedia | no | Keyless |
-| Materials registry | no | Offline grounded |
-| Wikidata density | no | P2054 independent density |
-| Semantic Scholar | optional | Rate limits without key |
-| arXiv | no | Atom API |
-| **OpenAlex** | no | CC0 scholarly graph · invent + community |
-| **PatentsView** | **yes** | `PATENTSVIEW_API_KEY` or status `key_missing` |
-| Formula / CODATA / DLMF | no | Formula backend |
-| Wissensbasis connectors | no | arxiv, components, materials, suppliers, internal actuators |
-| Postgres ledger | `GENESIS_PG_DSN` | Else in-memory |
-| Vector memory | — | Local anamnesis vendor; production Qdrant **false** |
-
-### Community evidence (not a user form)
-
-```python
-from gen.grenzverschiebung.readiness_ladder import community_evidence
-
-ev = community_evidence({"idea": "compliant gripper FDM"}, live=True)
-# agent_sourced=True, user_data_required=False
-# literature_hits from OpenAlex when live; score capped for literature-only
-```
-
-Optional `out/community_ledger.json` is an **agent cache**, never a human homework form.
-
-### Memory fabric (ζ)
-
-`build_memory_fabric_certificate` deposits **VERIFIED** claims only; empty fabric is valid abstention; recalls require conformal calibration health.
+| Extra | Inhalt | Hinweis |
+|-------|--------|---------|
+| *(core)* | numpy, sympy, scipy, mpmath, pydantic | immer |
+| `web` | FastAPI, uvicorn | Atelier |
+| `cad` | cadquery, gmsh | **nur** isoliertes venv |
+| `b123d` | build123d | **eigenes** Env, nie mit `[cad]` |
+| `postgres` | asyncpg | persistentes Ledger |
+| `smt` | z3-solver | globale Constraints |
+| `sim` | pybullet | Contact-Dynamics |
+| `draw` | ezdxf, pillow | DXF / Diagramme |
+| `dev` | pytest, ruff, hypothesis, … | Entwicklung |
+| `full` | fast alle | `verify` absichtlich leer (privates trust-core) |
 
 ---
 
-## 15. Platform caps
-
-Four caps surface across the product:
-
-| Cap | Meaning |
-|-----|---------|
-| **ProofPackage** | On-disk proof package directory for a run |
-| **ReadinessLadder** | TRL-style level from evidence in the package |
-| **TeacherMode** | Learning notes that make the human smarter |
-| **CommunityEvidence** | Public literature / field feedback scores |
-
-```bash
-genesis --mode caps
-# full-caps modes typically: assess, bundle, realize, humanoid
-```
-
-Bundle `MANIFEST.json` includes caps fields so partial packages cannot silently omit them.
-
----
-
-## 16. CLI modes (detailed)
-
-Run `genesis --help` for the full choice list. Selected modes:
-
-### Research & math
-
-| Mode | Purpose |
-|------|---------|
-| `report` | Phase α research report (default) |
-| `research` | Math identity / research path |
-| `solution` | Phase β solution space |
-| `spec` | Phase γ specification |
-| `goldset` | Anti-hallucination measurement harness |
-| `divergence` | Phase φ possibility space (live backends) |
-| `frontier` | Phase χ frontier map offline |
-
-### Product & packages
-
-| Mode | Purpose |
-|------|---------|
-| `assess` | Clarification + δ-physics + caps |
-| `bundle` | Full deliverable bundle + MANIFEST |
-| `print` | Printability / mesh integrity |
-| `realize` | Multi-fragment realization package |
-| `capstone` | Gated demo specification |
-
-### Invent & invent-adjacent
-
-| Mode | Purpose |
-|------|---------|
-| `invent` | Invention loop |
-| `council` | Multi-model council (offline default; `--live` for real CLIs) |
-| `ideas` / `dream` | Idea / LUMEN dream path |
-| `horizon-full` | LUMEN + deep discovery + grenz cluster |
-
-### Physics, robotics, domain
-
-| Mode | Purpose |
-|------|---------|
-| `structural` | Structural demos |
-| `humanoid` / `aethon` | Humanoid research + sim gates |
-| `section` / `topology` / `training` / `chip` | Domain tooling modes |
-| Fach: `architekt` … `wirtschaft` | Discipline pipelines |
-
-### Operator / meta
-
-| Mode | Purpose |
-|------|---------|
-| `sources` | Connector catalog health |
-| `caps` | Platform caps matrix |
-| `multi-physics` | Co-design receipt |
-| `well-probe` | The Well stream probe (no 15 TB download) |
-| `breakthrough` | Breakthrough / frontier demos |
-| `discover-ode` | SINDy discovery demo |
-
-### Flags
-
-| Flag | Meaning |
-|------|---------|
-| `--demo` | Offline scripted models + canned sources |
-| `--live` | Real Grok/Claude (or other configured) CLIs where supported; enables live community for horizon-full |
-| `--generator` / `--verifier` | Model ids (defaults: grok-4.5 / claude-opus-4-8 via CLIs) |
-| `--format` | `text` · `md` · `scad` · `b123d` · `stl` for spec export |
-
----
-
-## 17. External integration & license discipline
-
-External models, tools, and datasets register through `gen.external.registry`:
-
-- **Permissive** (MIT/Apache/BSD/CC0/…) → may link into the core.  
-- **Copyleft** (GPL/AGPL/LGPL) → **process boundary only** (`IntegrationMode.PROCESS`).  
-- **Non-commercial** → **forbidden** in the commercial core.  
-- **Unknown license** → refused (no silent default to permissive).
-
-Bindings become VERIFIED ledger claims with provenance for auditability.
-
-Search backends implement `SearchBackend`: discovery only (candidates unfetched until scholar retrieves them); id-less rows are skipped; transport failures raise `SearchBackendError` (loud).
-
----
-
-## 18. Determinism, offline demos & honest limits
-
-### Determinism
-
-- Offline demos use `ScriptedLLM` + canned HTTP — byte-stable for CI.  
-- Live runs are opt-in (`GENESIS_ALLOW_LIVE`, `--live`).  
-- Config and model ids enter the run hash for reproducibility of the offline path.
-
-### CadQuery / CI
-
-CadQuery is **not** in the main `.venv` (numpy downgrade risk). Exact BREP uses:
-
-1. In-process cadquery if somehow present, else  
-2. Isolated interpreter when `cad_available()` (env `GENESIS_CAD_PYTHON` or default path if it exists), else  
-3. GeometryError / AABB-only layers / monkeypatched unit tests.
-
-CI has no laptop `.venv-cad` — tests that stub OCCT force the offline path.
-
-### Honest limits (not claimed)
-
-| Topic | Status |
-|-------|--------|
-| Multi-axis freeform CAM | Open |
-| Full GD&T PDF / DXF production drawings | `drawing_gap: true` |
-| Production Qdrant / pgvector cluster | Not wired |
-| Private lab field replications | Cannot invent |
-| The Well 15 TB bulk | Stream/probe only |
-| Trustcore private companion | Optional, not required |
-
-Depth is tracked as **L0 (doc) → L4 (production sign-off)** in STATUS. “Wired” ≠ “factory certified.”
-
----
-
-## 19. Project structure
-
-> Layout of the **private engine** codebase (not checked into this overview repo):
-
-```
-genesis-engine/  # private
-├── src/gen/
-│   ├── agents/              # scout, scholar, skeptic, architect, conductor, …
-│   ├── tools/               # OpenAlex, arXiv, patents, materials, Wikidata, source_catalog
-│   ├── verification/        # gates, geometry, SMT, trustcore adapter, …
-│   ├── cad/                 # DFM, G-code, cost, kicad, cadquery_bridge + worker
-│   ├── grenzverschiebung/   # LUMENCRUCIBLE, readiness, learning, boundary, safety
-│   ├── inventor/            # brief, novelty, score, domains (thermal, mechatronics)
-│   ├── discovery/           # SINDy, frontier, proof_loop, controller
-│   ├── pipelines/           # integrator, realize, fach pipelines, realization_package
-│   ├── simulation/          # runner, multi_physics_receipt, mesh gates, co-sim
-│   ├── electronics.py       # circuit/electronics layer
-│   ├── physics_validation.py / physics_selection.py
-│   ├── bundle.py            # emit_bundle + MANIFEST caps
-│   ├── platform_caps.py     # caps matrix + extract_caps_snapshot
-│   ├── horizon_full.py      # horizon-full orchestration
-│   ├── memory/              # verified facts + anamnesis vendor
-│   ├── ledger/              # in-memory + postgres
-│   ├── wissensbasis/        # recipes, connectors, seeding
-│   ├── web/                 # optional FastAPI UI
-│   └── cli.py               # genesis entrypoint
-├── tests/                   # large offline suite
-├── docs/                    # STATUS, HORIZON, backlog, phase docs (private)
-├── scripts/                 # self_improve_smoke, postgres_smoke, setup_cadquery_venv
-├── sql/001_ledger.sql
-├── pyproject.toml
-└── README.md
-```
-
----
-
-## 20. Installation
-
-```bash
-# Minimum (core + tests + ruff + z3)
-pip install -e ".[dev,smt]"
-
-# Optional extras
-pip install -e ".[web]"        # FastAPI UI: genesis-web
-pip install -e ".[postgres]"   # asyncpg ledger
-pip install -e ".[sim]"        # pybullet (tests skip if missing)
-# [cad] / [b123d] — prefer isolated envs in the private engine install
-```
-
-| Extra | Provides |
-|-------|----------|
-| `dev` | pytest, ruff, httpx, hypothesis, … |
-| `smt` | z3-solver |
-| `web` | fastapi, uvicorn |
-| `postgres` | asyncpg |
-| `sim` | pybullet |
-| `full` | all optional groups |
-
-**Python:** ≥ 3.11  
-**Core deps:** numpy, sympy, scipy, mpmath, pydantic  
-
-Console scripts: `genesis`, `genesis-web`.
-
----
-
-## 21. Tests & CI
+## 18. Tests & Qualität
 
 ```bash
 export PYTHONPATH=src
-pytest -q
-ruff check .
-
-# Focused product smoke (offline)
-bash scripts/self_improve_smoke.sh
+export GENESIS_CAD_PYTHON="${GENESIS_CAD_PYTHON:-$HOME/.venv-cad/bin/python}"
+.venv/bin/python -m pytest -q
 ```
 
-### GitHub Actions
+```text
+  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+  │ Unit         │   │ Integration  │   │ Guards       │
+  │ physics CAD  │   │ CLI web gold │   │ empty STL    │
+  │ idea_machine │   │ pipelines    │   │ unfailable   │
+  │ humanoids    │   │ strict deliv.│   │ honesty      │
+  └──────────────┘   └──────────────┘   └──────────────┘
+```
 
-CI runs on the private engine repository (Python 3.11 + 3.12, ruff + full pytest).
-
-| Step | Matrix |
-|------|--------|
-| Install `.[dev,smt]` | Python **3.11**, **3.12** |
-| `ruff check .` | both |
-| `pytest -q` | both |
-
-Optional CAD/sim packages are not installed in CI — related tests honest-skip or use stubs.
-
----
-
-## 22. Development process
-
-GENESIS itself is evolved under an anti-hallucination meta-process:
-
-- **Fitness functions** — simplicity, security, verification, blast radius  
-- **Evidence-first** — STATUS and backlog require commit + test anchors  
-- **Structured loops** — research → plan → implement → review  
-- **Multi-agent council** patterns for high-stakes product decisions  
-- **No overclaim** — first-stone ≠ production; L-levels in STATUS  
-
-Implementation and campaign audit trails are maintained with the private engine codebase.
+CI: GitHub Actions · Python 3.11 + 3.12 · Badge oben.
 
 ---
 
-## 23. License
+## 19. Zahlen aus dem Code
 
-MIT — see [LICENSE](LICENSE).
+| Größe | Wert |
+|------:|-----:|
+| Python-Module `src/gen` | **364** |
+| LOC grob | **~112 000** |
+| CLI-Modi | **59** |
+| Physics validators | **53** |
+| Physics recipes | **58** |
+| CAD shape families | **27** |
+| Idea lenses | **10** |
+| Goldset cases | **24** |
+| Web API routes | **26** |
+| Test-Dateien `test_*.py` | **~400+** |
+| Console scripts | **2** (`genesis`, `genesis-web`) |
+
+---
+
+## 20. Dokumentation
+
+| Datei | Rolle |
+|-------|--------|
+| **[docs/STATUS.md](docs/STATUS.md)** | Living SSOT (L0–L4, Auto-Zahlen) |
+| **[docs/IDEA_MACHINE.md](docs/IDEA_MACHINE.md)** | Ideenmaschine tief |
+| **[ABOUT.md](ABOUT.md)** | Kurzportrait & Prinzipien |
+| **[docs/CADQUERY_VENV.md](docs/CADQUERY_VENV.md)** | CAD isoliert |
+| **[docs/env.cad.example](docs/env.cad.example)** | Env-Vorlage |
+| **[docs/NEVER_FAILING_CHECKS.md](docs/NEVER_FAILING_CHECKS.md)** | Unfailable-Triage |
+| **[COORDINATION.md](COORDINATION.md)** | Multi-Agent-Koordination |
+| **[docs/VISION.md](docs/VISION.md)** | Vision |
+
+```bash
+PYTHONPATH=src python scripts/gen_status.py   # STATUS AUTO-Block
+```
+
+---
+
+## 21. Lizenz
+
+**MIT** — siehe `pyproject.toml` und License-Datei im Repo.
 
 ---
 
 <div align="center">
 
-### Sources · Gates · Gaps · Reproducibility
+<br/>
 
-**Build it. Verify it. Ship only what the ledger can defend.**
+### GENESIS
+
+**Idea machine for dreamers and inventors.**
+
+```text
+     ✦ Funke
+        │
+        ▼
+     ─── mutiges IDEENFELD ───
+        │
+        ▼
+     Wahl ──► Gerüst ──► Teil ──► Realität
+              (Physik, Quellen, Gaps)
+```
+
+*Dream first · expand boldly · prove what you ship · honest gaps over invented answers.*
 
 <br/>
 
-[Issues (this overview)](https://github.com/Oz4462/Genesis-V2/issues) · Public product narrative only
+[CI](https://github.com/Oz4462/genesis/actions) · [STATUS](docs/STATUS.md) · [IDEA MACHINE](docs/IDEA_MACHINE.md) · [CAD](docs/CADQUERY_VENV.md)
+
+<br/>
 
 </div>
