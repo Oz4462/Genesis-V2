@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">GENESIS capability system</title>
+  <desc id="desc">Six connected capability areas surround the GENESIS core: ideation, research, assessment, CAD, exploration, and delivery. External prototyping and measurement remain outside the software boundary.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b17"/>
+      <stop offset="0.55" stop-color="#111a31"/>
+      <stop offset="1" stop-color="#071d25"/>
+    </linearGradient>
+    <radialGradient id="coreGlow">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020617" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" rx="30" fill="url(#bg)"/>
+  <circle cx="640" cy="356" r="190" fill="url(#coreGlow)"/>
+
+  <g fill="#94a3b8">
+    <circle cx="92" cy="70" r="2"/>
+    <circle cx="1168" cy="82" r="2"/>
+    <circle cx="1210" cy="310" r="1.5"/>
+    <circle cx="76" cy="410" r="1.5"/>
+    <circle cx="1050" cy="640" r="2"/>
+    <circle cx="208" cy="630" r="2"/>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">
+    <text x="640" y="48" fill="#f8fafc" font-size="28" font-weight="800">GENESIS CAPABILITY SYSTEM</text>
+    <text x="640" y="75" fill="#94a3b8" font-size="14">Measured software surfaces · August 2026 snapshot</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2.5" fill="none">
+    <path d="M378 207 C470 235 520 272 570 316"/>
+    <path d="M640 225 V270"/>
+    <path d="M902 207 C810 235 760 272 710 316"/>
+    <path d="M378 509 C470 480 520 440 570 397"/>
+    <path d="M640 486 V442"/>
+    <path d="M902 509 C810 480 760 440 710 397"/>
+  </g>
+
+  <g fill="#64748b">
+    <path d="M560 307 L574 320 L555 320 Z"/>
+    <path d="M633 260 L640 275 L647 260 Z"/>
+    <path d="M720 307 L706 320 L725 320 Z"/>
+    <path d="M560 406 L574 393 L555 393 Z"/>
+    <path d="M633 452 L640 437 L647 452 Z"/>
+    <path d="M720 406 L706 393 L725 393 Z"/>
+  </g>
+
+  <g filter="url(#shadow)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g>
+      <rect x="70" y="125" width="310" height="144" rx="22" fill="#111827" stroke="#34d399" stroke-width="2"/>
+      <circle cx="112" cy="169" r="22" fill="#07352b" stroke="#34d399"/>
+      <path d="M112 153 L116 165 L128 169 L116 173 L112 185 L108 173 L96 169 L108 165 Z" fill="#6ee7b7"/>
+      <text x="148" y="159" fill="#d1fae5" font-size="12" font-weight="750">01 · IDEATE</text>
+      <text x="148" y="184" fill="#f8fafc" font-size="20" font-weight="750">Idea machine</text>
+      <text x="96" y="218" fill="#a7f3d0" font-size="15" font-weight="700">10 lenses · 12 stretch tactics</text>
+      <text x="96" y="244" fill="#94a3b8" font-size="13">offline expansion · history · remix</text>
+    </g>
+
+    <g>
+      <rect x="485" y="92" width="310" height="144" rx="22" fill="#111827" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="527" cy="136" r="22" fill="#083344" stroke="#22d3ee"/>
+      <path d="M516 124 H535 L541 130 V149 H516 Z M534 124 V131 H541 M521 137 H536 M521 143 H532" fill="none" stroke="#67e8f9" stroke-width="2"/>
+      <text x="563" y="126" fill="#cffafe" font-size="12" font-weight="750">02 · GROUND</text>
+      <text x="563" y="151" fill="#f8fafc" font-size="20" font-weight="750">Research and ledger</text>
+      <text x="511" y="185" fill="#a5f3fc" font-size="15" font-weight="700">claims · receipts · checkpoints</text>
+      <text x="511" y="211" fill="#94a3b8" font-size="13">provenance · revision · abstention</text>
+    </g>
+
+    <g>
+      <rect x="900" y="125" width="310" height="144" rx="22" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+      <circle cx="942" cy="169" r="22" fill="#082f49" stroke="#38bdf8"/>
+      <path d="M929 177 C936 151 949 151 956 177 M929 177 H956 M943 153 V183" fill="none" stroke="#7dd3fc" stroke-width="2.3"/>
+      <text x="978" y="159" fill="#e0f2fe" font-size="12" font-weight="750">03 · ASSESS</text>
+      <text x="978" y="184" fill="#f8fafc" font-size="20" font-weight="750">Physics and constraints</text>
+      <text x="926" y="218" fill="#bae6fd" font-size="15" font-weight="700">53 validators · 58 recipes</text>
+      <text x="926" y="244" fill="#94a3b8" font-size="13">units · SMT · requirement gates</text>
+    </g>
+
+    <g>
+      <rect x="70" y="446" width="310" height="144" rx="22" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="112" cy="490" r="22" fill="#3a2506" stroke="#f59e0b"/>
+      <path d="M99 486 L112 478 L125 486 V502 L112 510 L99 502 Z M99 486 L112 494 L125 486 M112 494 V510" fill="none" stroke="#fbbf24" stroke-width="2"/>
+      <text x="148" y="480" fill="#fef3c7" font-size="12" font-weight="750">04 · BUILD</text>
+      <text x="148" y="505" fill="#f8fafc" font-size="20" font-weight="750">CAD and manufacturing</text>
+      <text x="96" y="539" fill="#fde68a" font-size="15" font-weight="700">27 shape families · isolated OCCT</text>
+      <text x="96" y="565" fill="#94a3b8" font-size="13">STEP · BREP · STL · DFM · packages</text>
+    </g>
+
+    <g>
+      <rect x="485" y="479" width="310" height="144" rx="22" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="527" cy="523" r="22" fill="#251647" stroke="#a78bfa"/>
+      <circle cx="527" cy="523" r="12" fill="none" stroke="#c4b5fd" stroke-width="2"/>
+      <path d="M527 501 V507 M527 539 V545 M505 523 H511 M543 523 H549 M512 508 L516 512 M538 534 L542 538 M542 508 L538 512 M516 534 L512 538" stroke="#c4b5fd" stroke-width="2"/>
+      <text x="563" y="513" fill="#ede9fe" font-size="12" font-weight="750">05 · EXPLORE</text>
+      <text x="563" y="538" fill="#f8fafc" font-size="20" font-weight="750">Simulation and domains</text>
+      <text x="511" y="572" fill="#ddd6fe" font-size="15" font-weight="700">discovery · humanoids · aero</text>
+      <text x="511" y="598" fill="#94a3b8" font-size="13">case-bound research surfaces</text>
+    </g>
+
+    <g>
+      <rect x="900" y="446" width="310" height="144" rx="22" fill="#111827" stroke="#fb7185" stroke-width="2"/>
+      <circle cx="942" cy="490" r="22" fill="#3b121d" stroke="#fb7185"/>
+      <path d="M928 479 H956 V502 H928 Z M933 485 H951 M933 491 H951 M933 497 H945" fill="none" stroke="#fda4af" stroke-width="2"/>
+      <text x="978" y="480" fill="#ffe4e6" font-size="12" font-weight="750">06 · DELIVER</text>
+      <text x="978" y="505" fill="#f8fafc" font-size="20" font-weight="750">Interfaces and packages</text>
+      <text x="926" y="539" fill="#fecdd3" font-size="15" font-weight="700">62 CLI modes · 25 API routes</text>
+      <text x="926" y="565" fill="#94a3b8" font-size="13">CLI · local web · Python API</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">
+    <circle cx="640" cy="356" r="92" fill="url(#core)" stroke="#c4b5fd" stroke-width="3"/>
+    <text x="640" y="345" fill="#ffffff" font-size="29" font-weight="850">GENESIS</text>
+    <text x="640" y="372" fill="#e0f2fe" font-size="13" font-weight="700">IDEA → EVIDENCE → BUILD</text>
+    <text x="640" y="397" fill="#dbeafe" font-size="12">383 modules · 0 code islands</text>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">
+    <rect x="230" y="653" width="820" height="42" rx="21" fill="#25131a" stroke="#fb7185"/>
+    <text x="640" y="679" fill="#ffe4e6" font-size="14" font-weight="700">EXTERNAL REALITY BOUNDARY · prototype · measurement · independent review · certification</text>
+  </g>
+</svg>
